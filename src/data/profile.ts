@@ -6,6 +6,7 @@ export const profile = {
     "I build Kubernetes-based platforms, infrastructure automation, and CI/CD workflows using OpenTofu/Terraform, Ansible, Jenkins, GitHub Actions, Cloudflare, and Go.",
   location: "Poland / Warsaw",
   email: "aleksey.bevz@gmail.com",
+  emailLabel: "aleksey [at] bevz.dev",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
   cvHref: "/cv",
