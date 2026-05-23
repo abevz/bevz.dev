@@ -7,9 +7,11 @@ import SectionHeading from "../components/SectionHeading.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SkillGroup from "../components/SkillGroup.astro";
 import ContactBlock from "../components/ContactBlock.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 import { profile } from "../data/profile";
 import { projects } from "../data/projects";
 import { skillGroups } from "../data/skills";
+import { services } from "../data/services";
 ---
 
 <BaseLayout
@@ -23,8 +25,8 @@ import { skillGroups } from "../data/skills";
     <section class="shell section">
       <SectionHeading
         eyebrow="Positioning"
-        title="Built around real platform work"
-        intro="This site is meant to make the infrastructure story legible fast: what I build, how I operate, and why the projects matter."
+        title="Engineering profile, not just a resume mirror"
+        intro={profile.positioningLead}
       />
       <div class="positioning-grid">
         {profile.positioning.map((item) => (
@@ -35,9 +37,9 @@ import { skillGroups } from "../data/skills";
 
     <section class="shell section" id="projects">
       <SectionHeading
-        eyebrow="Featured Projects"
-        title="Infrastructure projects with evidence, not buzzwords"
-        intro="The strongest signal comes from platform work that shows architecture, operations, and delivery discipline together."
+        eyebrow="Selected Engineering Work"
+        title="Practical infrastructure work framed by problem, approach, and value"
+        intro="The point here is not a portfolio gallery. It is to show how I think about infrastructure problems, how I implement solutions, and what engineering value that work creates."
       />
       <div class="project-grid">
         {projects.map((project) => (
@@ -48,9 +50,9 @@ import { skillGroups } from "../data/skills";
 
     <section class="shell section">
       <SectionHeading
-        eyebrow="Stack"
-        title="Skills grouped by actual platform concerns"
-        intro="The point is not to list every tool. The point is to show operational depth where it matters."
+        eyebrow="Platform Engineering Toolkit"
+        title="Tools grouped by operating concerns, not keyword stuffing"
+        intro="LinkedIn already lists technologies. This section is here to show how the work groups together in practice."
       />
       <div class="skill-grid">
         {skillGroups.map((group) => (
@@ -59,12 +61,25 @@ import { skillGroups } from "../data/skills";
       </div>
     </section>
 
+    <section class="shell section">
+      <SectionHeading
+        eyebrow="How I Can Help"
+        title="Available for selected DevOps / Platform Engineering work"
+        intro="I work with small teams, early-stage projects, and infrastructure-heavy environments that need practical DevOps and platform engineering help: Kubernetes, CI/CD, observability, infrastructure automation, private registry, DNS/TLS, and documentation."
+      />
+      <div class="service-grid">
+        {services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </section>
+
     <section class="shell section split-section">
       <div>
         <SectionHeading
-          eyebrow="Current Focus"
-          title="What I am building toward now"
-          intro="This is the honest direction of travel rather than a frozen snapshot."
+          eyebrow="Current Engineering Focus"
+          title="Where I am putting practical engineering energy now"
+          intro="This is the current operating direction: useful infrastructure work, cleaner operational thinking, and stronger engineering evidence."
         />
         <ul class="focus-list">
           {profile.currentFocus.map((item) => (
@@ -84,6 +99,29 @@ import { skillGroups } from "../data/skills";
         linkedin={profile.linkedin}
         location={profile.location}
       />
+    </section>
+
+    <section class="shell section split-section">
+      <div>
+        <SectionHeading
+          eyebrow="How I Work"
+          title="Operational habits that shape the engineering work"
+          intro="The value is not only in the tools. It is also in the way infrastructure decisions are made, tested, documented, and debugged."
+        />
+        <ul class="focus-list">
+          {profile.workPrinciples.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <article class="contact-card contact-cta">
+        <p class="eyebrow">Contact</p>
+        <h3>Available for selected DevOps / Platform Engineering work</h3>
+        <p>{profile.contactText}</p>
+        <div class="cta-row">
+          <a class="button primary" href={`mailto:${profile.email}`}>Contact Me</a>
+        </div>
+      </article>
     </section>
   </main>
   <Footer />

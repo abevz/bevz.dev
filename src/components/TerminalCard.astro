@@ -1,11 +1,12 @@
 ---
 interface Props {
-  whoami: string;
-  focus: string[];
-  status: string;
+  blocks: {
+    command: string;
+    lines: string[];
+  }[];
 }
 
-const { whoami, focus, status } = Astro.props;
+const { blocks } = Astro.props;
 ---
 
 <section class="terminal-card" aria-label="Terminal style profile summary">
@@ -13,15 +14,15 @@ const { whoami, focus, status } = Astro.props;
     <span></span><span></span><span></span>
   </div>
   <div class="terminal-body">
-    <p><span class="prompt">$</span> <span class="command">whoami</span></p>
-    <p class="output">{whoami}</p>
-    <p><span class="prompt">$</span> <span class="command">focus</span></p>
-    <ul class="terminal-list">
-      {focus.map((item) => (
-        <li class="output">{item}</li>
-      ))}
-    </ul>
-    <p><span class="prompt">$</span> <span class="command">status</span></p>
-    <p class="output status">{status}</p>
+    {blocks.map((block) => (
+      <div class="terminal-block">
+        <p><span class="prompt">$</span> <span class="command">{block.command}</span></p>
+        <ul class="terminal-list">
+          {block.lines.map((line) => (
+            <li class={`output ${block.command === "status" ? "status" : ""}`}>{line}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </div>
 </section>

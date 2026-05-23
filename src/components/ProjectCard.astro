@@ -15,8 +15,18 @@ const { project } = Astro.props;
       {project.status}
     </span>
   </div>
-  <p>{project.description}</p>
-  <p class="impact">{project.impact}</p>
+  <div class="project-detail">
+    <span>Problem</span>
+    <p>{project.problem}</p>
+  </div>
+  <div class="project-detail">
+    <span>Approach</span>
+    <p>{project.approach}</p>
+  </div>
+  <div class="project-detail">
+    <span>Engineering value</span>
+    <p class="impact">{project.engineeringValue}</p>
+  </div>
   <ul class="chip-list" aria-label={`${project.title} stack`}>
     {project.stack.map((item) => (
       <li>{item}</li>

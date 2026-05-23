@@ -6,33 +6,51 @@ interface Props {
   title: string;
   tagline: string;
   summary: string;
+  email: string;
+  emailLabel: string;
   github: string;
   linkedin: string;
   cvHref: string;
   terminal: {
-    whoami: string;
-    focus: string[];
-    status: string;
+    blocks: {
+      command: string;
+      lines: string[];
+    }[];
   };
 }
 
-const { name, title, tagline, summary, github, linkedin, cvHref, terminal } =
-  Astro.props;
+const {
+  name,
+  title,
+  tagline,
+  summary,
+  email,
+  emailLabel,
+  github,
+  linkedin,
+  cvHref,
+  terminal,
+} = Astro.props;
 ---
 
 <section class="hero shell">
   <div class="hero-copy">
-    <p class="eyebrow">DevOps / Platform Engineer</p>
+    <p class="eyebrow">Hands-on engineering profile</p>
     <h1>{name}</h1>
     <p class="hero-title">{title}</p>
-    <p class="hero-summary">{summary}</p>
     <p class="hero-tagline">{tagline}</p>
+    <p class="hero-summary">{summary}</p>
     <div class="cta-row">
-      <a class="button primary" href="/projects">View Projects</a>
+      <a class="button primary" href="/projects">View Engineering Work</a>
       <a class="button" href={cvHref}>Download CV</a>
-      <a class="button" href={github} target="_blank" rel="noreferrer">GitHub</a>
-      <a class="button" href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
     </div>
+    <p class="subtle-links">
+      <a href={github} target="_blank" rel="noreferrer">GitHub</a>
+      <span>·</span>
+      <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <span>·</span>
+      <a href={`mailto:${email}`}>{emailLabel}</a>
+    </p>
   </div>
   <TerminalCard {...terminal} />
 </section>

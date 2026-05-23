@@ -5,55 +5,79 @@ export type ProjectLink = {
 
 export type Project = {
   title: string;
-  description: string;
-  stack: string[];
   status: string;
-  impact: string;
+  problem: string;
+  approach: string;
+  engineeringValue: string;
+  stack: string[];
   links: ProjectLink[];
 };
 
 export const projects: Project[] = [
   {
     title: "Platform-IaC",
-    description:
-      "Modular infrastructure automation framework for homelab and production-like environments with reproducible provisioning and configuration layers.",
-    stack: ["OpenTofu", "Ansible", "Kubernetes", "SOPS", "Cloudflare"],
     status: "Active",
-    impact:
-      "Shows provider-aware infrastructure thinking, secret handling, and automation discipline instead of one-off lab scripts.",
+    problem:
+      "Manual infrastructure setup is hard to reproduce, document, and evolve.",
+    approach:
+      "OpenTofu/Terraform for infrastructure, Ansible for configuration, SOPS/Age for secrets, and Kubernetes automation for platform services.",
+    engineeringValue:
+      "Shows modular infrastructure thinking, repeatability, documentation, and platform automation.",
+    stack: [
+      "OpenTofu",
+      "Terraform",
+      "Ansible",
+      "Kubernetes",
+      "SOPS",
+      "Age",
+      "Cloudflare",
+    ],
     links: [
       { label: "GitHub", href: "https://github.com/abevz/platform-iac" },
-      { label: "Case Study", href: "/projects#platform-iac" },
+      { label: "More context", href: "/projects#platform-iac" },
     ],
   },
   {
     title: "Kubernetes Observability Stack",
-    description:
-      "Production-like monitoring and logging stack using Prometheus, Grafana, Alertmanager, Loki, and related exporters.",
-    stack: ["Prometheus", "Grafana", "Alertmanager", "Loki", "Alloy"],
     status: "Active",
-    impact:
-      "Demonstrates practical platform operations: metrics, alerting, dashboards, and troubleshooting visibility.",
-    links: [{ label: "Details", href: "/projects#observability" }],
+    problem:
+      "Kubernetes environments need clear visibility into workloads, alerts, logs, and operational state.",
+    approach:
+      "kube-prometheus-stack, Grafana, Alertmanager, Loki, Grafana Alloy, ServiceMonitor patterns, and alert routing for production-like operations.",
+    engineeringValue:
+      "Shows practical monitoring, alerting, troubleshooting, dashboarding, and production-like operations.",
+    stack: [
+      "Prometheus Operator",
+      "Grafana",
+      "Alertmanager",
+      "Loki",
+      "Alloy",
+      "ServiceMonitor",
+    ],
+    links: [{ label: "More context", href: "/projects#observability" }],
   },
   {
     title: "Harbor Registry Platform",
-    description:
-      "Private container registry setup with Kubernetes integration, TLS, containerd mirror work, and production-style registry troubleshooting.",
-    stack: ["Harbor", "Kubernetes", "containerd", "TLS", "S3"],
     status: "In progress",
-    impact:
-      "Good signal for supply chain thinking, registry operations, and how platform pieces fit together beyond a simple app deploy.",
-    links: [{ label: "Details", href: "/projects#harbor" }],
+    problem:
+      "Teams need reliable private registry, image distribution, proxy cache, TLS, and Kubernetes integration.",
+    approach:
+      "Harbor registry setup, reverse proxy and TLS, containerd mirror configuration, image pull integration, and S3 backend troubleshooting.",
+    engineeringValue:
+      "Shows understanding of container supply chain, registry operations, Kubernetes image pulls, and real infrastructure debugging.",
+    stack: ["Harbor", "Kubernetes", "containerd", "S3", "TLS", "reverse proxy"],
+    links: [{ label: "More context", href: "/projects#harbor" }],
   },
   {
     title: "Go Automation Bot",
-    description:
-      "Go-based automation work focused on CLI tools, reliable task execution, and agent-friendly operational workflows.",
-    stack: ["Go", "SQLite", "CLI", "Automation"],
     status: "In progress",
-    impact:
-      "Shows movement from infrastructure operations toward building internal tooling and automation systems.",
+    problem:
+      "Automation workflows need reliable task execution, storage choices, and practical Go-based tooling.",
+    approach:
+      "Go-based automation project with careful choices around SQLite, concurrency, possible NATS JetStream integration, CLI workflows, and agent-like task execution.",
+    engineeringValue:
+      "Shows Go learning applied to DevOps-style automation instead of abstract programming exercises.",
+    stack: ["Go", "SQLite", "NATS JetStream", "CLI", "automation"],
     links: [{ label: "GitHub", href: "https://github.com/abevz" }],
   },
 ];
