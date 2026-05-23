@@ -41,7 +41,7 @@ export const projects: Project[] = [
       "Loki",
       "Alloy",
     ],
-    links: [{ label: "More context", href: "/projects#observability" }],
+    links: [{ label: "More context", href: "/projects#kubernetes-observability" }],
   },
   {
     title: "Harbor Registry Integration",
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "TLS",
       "Cloudflare DNS",
     ],
-    links: [{ label: "More context", href: "/projects#harbor" }],
+    links: [{ label: "More context", href: "/projects#harbor-registry-integration" }],
   },
   {
     title: "Go Automation",

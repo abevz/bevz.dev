@@ -1,18 +1,49 @@
 ---
+const pathname = Astro.url.pathname;
 const links = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Engineering Work" },
+  { href: "/projects", label: "Work" },
+  { href: "/notes", label: "Notes" },
   { href: "/cv", label: "CV" },
 ];
 ---
 
 <header class="site-header">
   <div class="shell nav-row">
-    <a class="brand" href="/">Aleksey Bevz</a>
-    <nav aria-label="Primary">
+    <a class="brand" href="/">
+      <img
+        class="brand-mark"
+        src="/dragon-mark.png"
+        alt=""
+        width="512"
+        height="512"
+        aria-hidden="true"
+      />
+      <span>Aleksey Bevz</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         {links.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "nav-link",
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href))
+                  ? "is-active"
+                  : undefined,
+              ]}
+              aria-current={
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href))
+                  ? "page"
+                  : undefined
+              }
+            >
+              {link.label}
+            </a>
+          </li>
         ))}
       </ul>
     </nav>

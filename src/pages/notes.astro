@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import NoteCard from "../components/NoteCard.astro";
+import { notes } from "../data/notes";
+---
+
+<BaseLayout
+  title="Engineering Notes — Aleksey Bevz"
+  description="Short engineering notes from infrastructure work, troubleshooting, and platform engineering practice."
+>
+  <Header />
+  <main class="shell section page-top">
+    <SectionHeading
+      title="Engineering Notes"
+      intro="Short notes from infrastructure work, troubleshooting, and platform engineering practice."
+    />
+    <div class="notes-grid">
+      {notes.map((note) => (
+        <NoteCard note={note} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
