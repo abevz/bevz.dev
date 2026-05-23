@@ -12,7 +12,7 @@ evidence, and a direct contact path.
 - [x] Add repository instructions and workflow guidance
 - [x] Define starter directory structure
 - [x] Write planning and structure docs
-- [ ] Convert the repo to bare + `main` worktree layout
+- [x] Convert the repo to bare + `main` worktree layout
 
 ## Phase 1: Site Skeleton
 
