@@ -145,6 +145,10 @@ ul {
   max-width: 38rem;
 }
 
+.hero-summary p + p {
+  margin-top: 0.8rem;
+}
+
 .hero-tagline {
   font-size: 1rem;
   max-width: 42rem;
@@ -243,39 +247,54 @@ ul {
 
 .terminal-bar {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 0.8rem 0.95rem;
   border-bottom: 1px solid var(--border);
   background: rgba(15, 20, 25, 0.75);
 }
 
-.terminal-bar span {
-  width: 0.8rem;
-  height: 0.8rem;
+.terminal-bar p {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: "JetBrains Mono", monospace;
+  white-space: nowrap;
+}
+
+.terminal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.terminal-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.45rem;
+  border: 1px solid rgba(45, 51, 67, 0.9);
   border-radius: 999px;
-  background: var(--text-dim);
-}
-
-.terminal-bar span:first-child {
-  background: var(--accent-red);
-}
-
-.terminal-bar span:nth-child(2) {
-  background: var(--accent);
-}
-
-.terminal-bar span:nth-child(3) {
-  background: var(--accent-green);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  background: rgba(31, 36, 48, 0.5);
+  font-family: "JetBrains Mono", monospace;
 }
 
 .terminal-body {
-  padding: 1rem 1.05rem;
+  padding: 0.92rem 1rem;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
+  line-height: 1.38;
 }
 
 .terminal-block + .terminal-block {
-  margin-top: 0.55rem;
+  margin-top: 0.38rem;
 }
 
 .prompt {
@@ -288,7 +307,7 @@ ul {
 
 .output {
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.52rem;
 }
 
 .terminal-list,
@@ -456,6 +475,15 @@ ul {
   .footer-row {
     align-items: start;
     flex-direction: column;
+  }
+
+  .terminal-bar {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .terminal-meta {
+    justify-content: flex-start;
   }
 
   .cta-row {

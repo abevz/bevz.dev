@@ -39,7 +39,11 @@ const {
     <h1>{name}</h1>
     <p class="hero-title">{title}</p>
     <p class="hero-tagline">{tagline}</p>
-    <p class="hero-summary">{summary}</p>
+    <div class="hero-summary">
+      {summary.split("\n\n").map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
     <div class="cta-row">
       <a class="button primary" href="/projects">View Engineering Work</a>
       <a class="button" href={cvHref}>Download CV</a>

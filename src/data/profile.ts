@@ -6,10 +6,10 @@ export const profile = {
   positioningLead:
     "Hands-on DevOps / Platform Engineer with production infrastructure experience at Ukrenergo and 4+ years of practical Kubernetes, CI/CD, observability, and infrastructure automation work across professional and production-like environments.",
   summary:
-    "I help make infrastructure more reproducible, observable, and easier to operate. My work combines real production infrastructure experience at Ukrenergo with hands-on platform engineering practice in Kubernetes, IaC, CI/CD, monitoring, private registry, DNS/TLS, and automation.",
+    "I help make infrastructure more reproducible, observable, and easier to operate.\n\nMy work combines production infrastructure experience at Ukrenergo with hands-on platform engineering practice in Kubernetes, IaC, CI/CD, monitoring, private registry, DNS/TLS, and automation.",
   location: "Poland / Warsaw",
   email: "aleksey.bevz@gmail.com",
-  emailLabel: "aleksey [at] bevz.dev",
+  emailLabel: "aleksey@bevz.dev",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
   cvHref: "/cv",
@@ -29,7 +29,10 @@ export const profile = {
       },
       {
         command: "role",
-        lines: ["hands-on-devops-platform-engineer"],
+        lines: [
+          "devops-platform-engineer",
+          "hands-on-infrastructure-work",
+        ],
       },
       {
         command: "experience",
