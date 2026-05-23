@@ -19,7 +19,16 @@ export const profile = {
     "Applying Go to practical DevOps automation",
     "Strengthening AWS, Terraform/OpenTofu, and cloud-native certification path",
   ],
-  certifications: ["CKA", "CKS", "CKAD", "AWS SAA-C03", "KCNA", "KCSA"],
+  certifications: [
+    "Kubestronaut",
+    "CKA",
+    "CKS",
+    "CKAD",
+    "KCNA",
+    "KCSA",
+    "AWS SAA-C03",
+    "PMP",
+  ],
   terminal: {
     blocks: [
       {
