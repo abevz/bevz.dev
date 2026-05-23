@@ -10,7 +10,10 @@ const { project } = Astro.props;
 
 <article class="project-card">
   <div class="card-topline">
-    <h3>{project.title}</h3>
+    <div>
+      <p class="work-label">{project.workLabel}</p>
+      <h3>{project.title}</h3>
+    </div>
     <span class={`status-pill ${project.status === "Active" ? "active" : "progress"}`}>
       {project.status}
     </span>
@@ -26,6 +29,9 @@ const { project } = Astro.props;
   <div class="project-detail">
     <span>Engineering value</span>
     <p class="impact">{project.engineeringValue}</p>
+  </div>
+  <div class="project-detail">
+    <span>Stack</span>
   </div>
   <ul class="chip-list" aria-label={`${project.title} stack`}>
     {project.stack.map((item) => (

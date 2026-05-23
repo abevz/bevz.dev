@@ -6,6 +6,7 @@ export type ProjectLink = {
 export type Project = {
   title: string;
   status: string;
+  workLabel: string;
   problem: string;
   approach: string;
   engineeringValue: string;
@@ -17,6 +18,7 @@ export const projects: Project[] = [
   {
     title: "Platform-IaC",
     status: "Active",
+    workLabel: "GitHub Project / Lab Work",
     problem:
       "Manual infrastructure setup is hard to reproduce, document, and evolve.",
     approach:
@@ -40,6 +42,7 @@ export const projects: Project[] = [
   {
     title: "Kubernetes Observability Stack",
     status: "Active",
+    workLabel: "Lab Work / Case Study",
     problem:
       "Kubernetes environments need clear visibility into workloads, alerts, logs, and operational state.",
     approach:
@@ -57,20 +60,30 @@ export const projects: Project[] = [
     links: [{ label: "More context", href: "/projects#observability" }],
   },
   {
-    title: "Harbor Registry Platform",
+    title: "Harbor Registry & Container Runtime Integration",
     status: "In progress",
+    workLabel: "Case Study / Infrastructure Troubleshooting",
     problem:
-      "Teams need reliable private registry, image distribution, proxy cache, TLS, and Kubernetes integration.",
+      "Kubernetes environments need reliable image delivery, private registry access, DockerHub proxy caching, TLS, and predictable container runtime configuration.",
     approach:
-      "Harbor registry setup, reverse proxy and TLS, containerd mirror configuration, image pull integration, and S3 backend troubleshooting.",
+      "Configured and troubleshot Harbor registry behind reverse proxy/TLS, containerd mirror settings, Kubernetes image pull integration, robot account authentication, and S3-backed registry storage issues.",
     engineeringValue:
-      "Shows understanding of container supply chain, registry operations, Kubernetes image pulls, and real infrastructure debugging.",
-    stack: ["Harbor", "Kubernetes", "containerd", "S3", "TLS", "reverse proxy"],
+      "Demonstrates practical understanding of container registry operations, Kubernetes image pulls, container runtime configuration, TLS/reverse proxy behavior, and real infrastructure debugging.",
+    stack: [
+      "Harbor",
+      "Kubernetes",
+      "containerd",
+      "S3",
+      "TLS",
+      "reverse proxy",
+      "Cloudflare DNS",
+    ],
     links: [{ label: "More context", href: "/projects#harbor" }],
   },
   {
     title: "Go Automation Bot",
     status: "In progress",
+    workLabel: "GitHub Project / In Progress",
     problem:
       "Automation workflows need reliable task execution, storage choices, and practical Go-based tooling.",
     approach:

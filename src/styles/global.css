@@ -354,6 +354,14 @@ ul {
   margin-bottom: 0.75rem;
 }
 
+.work-label {
+  margin-bottom: 0.35rem;
+  color: var(--accent-blue);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .status-pill {
   padding: 0.2rem 0.55rem;
   font-size: 0.74rem;
