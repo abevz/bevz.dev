@@ -1,0 +1,30 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="card-topline">
+    <h3>{project.title}</h3>
+    <span class={`status-pill ${project.status === "Active" ? "active" : "progress"}`}>
+      {project.status}
+    </span>
+  </div>
+  <p>{project.description}</p>
+  <p class="impact">{project.impact}</p>
+  <ul class="chip-list" aria-label={`${project.title} stack`}>
+    {project.stack.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  <div class="link-row">
+    {project.links.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+</article>

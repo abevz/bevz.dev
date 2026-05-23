@@ -1,0 +1,44 @@
+export const profile = {
+  name: "Aleksey Bevz",
+  title: "DevOps / Platform Engineer",
+  tagline: "Kubernetes • IaC • CI/CD • Observability • Go Automation",
+  summary:
+    "I build Kubernetes-based platforms, infrastructure automation, and CI/CD workflows using OpenTofu/Terraform, Ansible, Jenkins, GitHub Actions, Cloudflare, and Go.",
+  location: "Poland / Warsaw",
+  email: "aleksey.bevz@gmail.com",
+  github: "https://github.com/abevz",
+  linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
+  cvHref: "/cv",
+  currentFocus: [
+    "Transitioning deeper into DevOps and Platform Engineering roles",
+    "Building Go-based automation tools and operator-adjacent workflows",
+    "Developing production-like homelab infrastructure with GitOps and observability",
+    "Turning real infra work into cleaner hiring signal and case studies",
+  ],
+  terminal: {
+    whoami: "aleksey-bevz",
+    focus: [
+      "kubernetes",
+      "infrastructure-as-code",
+      "platform-engineering",
+      "go-automation",
+    ],
+    status: "open-to-devops-opportunities",
+  },
+  positioning: [
+    "Senior DevOps Engineer with 4+ years of production Kubernetes experience across 4 environments and roughly 50+ nodes.",
+    "Kubestronaut with CNCF certifications across administration, security, development, and cloud native fundamentals.",
+    "Built platform components around Kubernetes, Ceph, Harbor, PostgreSQL HA, CI/CD, and observability.",
+    "Former engineering leader who can connect infrastructure decisions with delivery and business constraints.",
+  ],
+  certifications: [
+    "Kubestronaut",
+    "CKA",
+    "CKS",
+    "CKAD",
+    "KCNA",
+    "KCSA",
+    "AWS SAA-C03",
+    "PMP",
+  ],
+};

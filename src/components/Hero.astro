@@ -1,0 +1,38 @@
+---
+import TerminalCard from "./TerminalCard.astro";
+
+interface Props {
+  name: string;
+  title: string;
+  tagline: string;
+  summary: string;
+  github: string;
+  linkedin: string;
+  cvHref: string;
+  terminal: {
+    whoami: string;
+    focus: string[];
+    status: string;
+  };
+}
+
+const { name, title, tagline, summary, github, linkedin, cvHref, terminal } =
+  Astro.props;
+---
+
+<section class="hero shell">
+  <div class="hero-copy">
+    <p class="eyebrow">DevOps / Platform Engineer</p>
+    <h1>{name}</h1>
+    <p class="hero-title">{title}</p>
+    <p class="hero-summary">{summary}</p>
+    <p class="hero-tagline">{tagline}</p>
+    <div class="cta-row">
+      <a class="button primary" href="/projects">View Projects</a>
+      <a class="button" href={cvHref}>Download CV</a>
+      <a class="button" href={github} target="_blank" rel="noreferrer">GitHub</a>
+      <a class="button" href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
+  <TerminalCard {...terminal} />
+</section>

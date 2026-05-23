@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillGroup from "../components/SkillGroup.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import { profile } from "../data/profile";
+import { projects } from "../data/projects";
+import { skillGroups } from "../data/skills";
+---
+
+<BaseLayout
+  title="Aleksey Bevz — DevOps / Platform Engineer"
+  description="DevOps and Platform Engineering portfolio focused on Kubernetes, Infrastructure as Code, CI/CD, Observability and Go automation."
+>
+  <Header />
+  <main>
+    <Hero {...profile} />
+
+    <section class="shell section">
+      <SectionHeading
+        eyebrow="Positioning"
+        title="Built around real platform work"
+        intro="This site is meant to make the infrastructure story legible fast: what I build, how I operate, and why the projects matter."
+      />
+      <div class="positioning-grid">
+        {profile.positioning.map((item) => (
+          <article class="note-card"><p>{item}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section" id="projects">
+      <SectionHeading
+        eyebrow="Featured Projects"
+        title="Infrastructure projects with evidence, not buzzwords"
+        intro="The strongest signal comes from platform work that shows architecture, operations, and delivery discipline together."
+      />
+      <div class="project-grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section">
+      <SectionHeading
+        eyebrow="Stack"
+        title="Skills grouped by actual platform concerns"
+        intro="The point is not to list every tool. The point is to show operational depth where it matters."
+      />
+      <div class="skill-grid">
+        {skillGroups.map((group) => (
+          <SkillGroup group={group} />
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section split-section">
+      <div>
+        <SectionHeading
+          eyebrow="Current Focus"
+          title="What I am building toward now"
+          intro="This is the honest direction of travel rather than a frozen snapshot."
+        />
+        <ul class="focus-list">
+          {profile.currentFocus.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <div class="cert-row">
+          {profile.certifications.map((item) => (
+            <span class="cert-chip">{item}</span>
+          ))}
+        </div>
+      </div>
+      <ContactBlock
+        email={profile.email}
+        github={profile.github}
+        linkedin={profile.linkedin}
+        location={profile.location}
+      />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

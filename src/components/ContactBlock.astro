@@ -1,0 +1,21 @@
+---
+interface Props {
+  email: string;
+  github: string;
+  linkedin: string;
+  location: string;
+}
+
+const { email, github, linkedin, location } = Astro.props;
+---
+
+<section class="contact-card">
+  <h3>Contact</h3>
+  <ul class="contact-list">
+    <li><span>Email</span><a href={`mailto:${email}`}>{email}</a></li>
+    <li><span>GitHub</span><a href={github} target="_blank" rel="noreferrer">{github}</a></li>
+    <li><span>LinkedIn</span><a href={linkedin} target="_blank" rel="noreferrer">aleksey-bevz</a></li>
+    <li><span>Location</span><strong>{location}</strong></li>
+    <li><span>Open to</span><strong>DevOps, Platform Engineering, Infrastructure Automation roles</strong></li>
+  </ul>
+</section>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { profile } from "../data/profile";
+---
+
+<BaseLayout
+  title="CV — Aleksey Bevz"
+  description="CV summary for Aleksey Bevz: DevOps and Platform Engineering experience, certifications, and delivery focus."
+>
+  <Header />
+  <main class="shell section page-top">
+    <SectionHeading
+      eyebrow="CV"
+      title="Short-form profile"
+      intro="The dedicated CV artifact can be expanded later. For now this page gives a concise recruiter-friendly summary."
+    />
+
+    <section class="cv-grid">
+      <article class="note-card">
+        <h3>Role Fit</h3>
+        <p>
+          Senior DevOps / Platform Engineer with production Kubernetes
+          experience, on-prem infrastructure depth, CI/CD ownership, and strong
+          platform operations context.
+        </p>
+      </article>
+      <article class="note-card">
+        <h3>Location</h3>
+        <p>{profile.location}</p>
+      </article>
+      <article class="note-card">
+        <h3>Core Strengths</h3>
+        <p>
+          Kubernetes platform work, Infrastructure as Code, observability,
+          registry and delivery pipelines, and pragmatic automation.
+        </p>
+      </article>
+      <article class="note-card">
+        <h3>Certifications</h3>
+        <p>{profile.certifications.join(", ")}</p>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

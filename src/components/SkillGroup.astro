@@ -1,0 +1,18 @@
+---
+import type { SkillGroupData } from "../data/skills";
+
+interface Props {
+  group: SkillGroupData;
+}
+
+const { group } = Astro.props;
+---
+
+<article class="skill-card">
+  <h3>{group.title}</h3>
+  <ul class="skill-list">
+    {group.items.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</article>

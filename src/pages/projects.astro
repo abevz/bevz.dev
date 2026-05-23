@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<BaseLayout
+  title="Projects — Aleksey Bevz"
+  description="Selected DevOps and Platform Engineering projects across Kubernetes, infrastructure automation, observability, and tooling."
+>
+  <Header />
+  <main class="shell section page-top">
+    <SectionHeading
+      eyebrow="Projects"
+      title="Selected platform and automation work"
+      intro="This page is intentionally compact in v1. It gives hiring readers a fast map of the strongest technical proof."
+    />
+    <div class="project-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

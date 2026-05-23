@@ -16,20 +16,20 @@ evidence, and a direct contact path.
 
 ## Phase 1: Site Skeleton
 
-- [ ] Scaffold Astro project into the existing repository
-- [ ] Add base layout, metadata, and global styles
-- [ ] Implement Ayu-inspired theme tokens in `src/styles/global.css`
-- [ ] Create initial routes: `/`, `/projects`, `/cv`
-- [ ] Add shared components: header, footer, section heading
+- [x] Scaffold Astro project into the existing repository
+- [x] Add base layout, metadata, and global styles
+- [x] Implement Ayu-inspired theme tokens in `src/styles/global.css`
+- [x] Create initial routes: `/`, `/projects`, `/cv`
+- [x] Add shared components: header, footer, section heading
 
 ## Phase 2: Core Content
 
-- [ ] Build hero section with CTA buttons
-- [ ] Build terminal card
-- [ ] Build featured projects section
-- [ ] Build grouped skills section
-- [ ] Build current focus section
-- [ ] Build contact section
+- [x] Build hero section with CTA buttons
+- [x] Build terminal card
+- [x] Build featured projects section
+- [x] Build grouped skills section
+- [x] Build current focus section
+- [x] Build contact section
 
 ## Phase 3: Content Hardening
 
@@ -40,7 +40,7 @@ evidence, and a direct contact path.
 
 ## Phase 4: Deployment
 
-- [ ] Add Astro package scripts and build config
+- [x] Add Astro package scripts and build config
 - [ ] Configure Cloudflare Pages
 - [ ] Configure custom domain `bevz.dev`
 - [ ] Configure `www.bevz.dev` redirect
@@ -55,5 +55,5 @@ evidence, and a direct contact path.
 
 ## Immediate Next Task
 
-Scaffold the Astro app structure into this repo and turn the planning skeleton
-into a working static site shell.
+Install dependencies, run the local Astro build, and tighten the first-pass
+content and layout based on the rendered result before deployment setup.

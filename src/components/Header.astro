@@ -1,0 +1,20 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/cv", label: "CV" },
+];
+---
+
+<header class="site-header">
+  <div class="shell nav-row">
+    <a class="brand" href="/">bevz.dev</a>
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

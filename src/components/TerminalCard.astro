@@ -1,0 +1,27 @@
+---
+interface Props {
+  whoami: string;
+  focus: string[];
+  status: string;
+}
+
+const { whoami, focus, status } = Astro.props;
+---
+
+<section class="terminal-card" aria-label="Terminal style profile summary">
+  <div class="terminal-bar">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="terminal-body">
+    <p><span class="prompt">$</span> <span class="command">whoami</span></p>
+    <p class="output">{whoami}</p>
+    <p><span class="prompt">$</span> <span class="command">focus</span></p>
+    <ul class="terminal-list">
+      {focus.map((item) => (
+        <li class="output">{item}</li>
+      ))}
+    </ul>
+    <p><span class="prompt">$</span> <span class="command">status</span></p>
+    <p class="output status">{status}</p>
+  </div>
+</section>
