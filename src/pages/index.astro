@@ -22,24 +22,10 @@ import { services } from "../data/services";
   <main>
     <Hero {...profile} />
 
-    <section class="shell section">
-      <SectionHeading
-        eyebrow="Positioning"
-        title="Engineering profile, not just a resume mirror"
-        intro={profile.positioningLead}
-      />
-      <div class="positioning-grid">
-        {profile.positioning.map((item) => (
-          <article class="note-card"><p>{item}</p></article>
-        ))}
-      </div>
-    </section>
-
     <section class="shell section" id="projects">
       <SectionHeading
-        eyebrow="Selected Engineering Work"
-        title="Practical infrastructure work framed by problem, approach, and value"
-        intro="The point here is not a portfolio gallery. It is to show how I think about infrastructure problems, how I implement solutions, and what engineering value that work creates."
+        title="Selected Work"
+        intro="Infrastructure work and case studies focused on reproducibility, visibility, and operational clarity."
       />
       <div class="project-grid">
         {projects.map((project) => (
@@ -50,9 +36,7 @@ import { services } from "../data/services";
 
     <section class="shell section">
       <SectionHeading
-        eyebrow="Platform Engineering Toolkit"
-        title="Tools grouped by operating concerns, not keyword stuffing"
-        intro="LinkedIn already lists technologies. This section is here to show how the work groups together in practice."
+        title="Core Strengths"
       />
       <div class="skill-grid">
         {skillGroups.map((group) => (
@@ -63,9 +47,8 @@ import { services } from "../data/services";
 
     <section class="shell section">
       <SectionHeading
-        eyebrow="How I Can Help"
-        title="Available for selected DevOps / Platform Engineering work"
-        intro="I work with small teams, early-stage projects, and infrastructure-heavy environments that need practical DevOps and platform engineering help: Kubernetes, CI/CD, observability, infrastructure automation, private registry, DNS/TLS, and documentation."
+        title="Ways I Can Help"
+        intro="Practical DevOps and platform engineering help for small teams and infrastructure-heavy projects."
       />
       <div class="service-grid">
         {services.map((service) => (
@@ -77,50 +60,24 @@ import { services } from "../data/services";
     <section class="shell section split-section">
       <div>
         <SectionHeading
-          eyebrow="Current Engineering Focus"
-          title="Where I am putting practical engineering energy now"
-          intro="This is the current operating direction: useful infrastructure work, cleaner operational thinking, and stronger engineering evidence."
+          title="Current Focus"
         />
         <ul class="focus-list">
           {profile.currentFocus.map((item) => (
             <li>{item}</li>
           ))}
         </ul>
-        <div class="cert-row">
-          {profile.certifications.map((item) => (
-            <span class="cert-chip">{item}</span>
-          ))}
-        </div>
-      </div>
-      <ContactBlock
-        email={profile.email}
-        emailLabel={profile.emailLabel}
-        github={profile.github}
-        linkedin={profile.linkedin}
-        location={profile.location}
-      />
-    </section>
-
-    <section class="shell section split-section">
-      <div>
-        <SectionHeading
-          eyebrow="How I Work"
-          title="Operational habits that shape the engineering work"
-          intro="The value is not only in the tools. It is also in the way infrastructure decisions are made, tested, documented, and debugged."
-        />
-        <ul class="focus-list">
-          {profile.workPrinciples.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
       </div>
       <article class="contact-card contact-cta">
-        <p class="eyebrow">Contact</p>
-        <h3>Available for selected DevOps / Platform Engineering work</h3>
+        <h3>Contact</h3>
         <p>{profile.contactText}</p>
-        <div class="cta-row">
-          <a class="button primary" href={`mailto:${profile.email}`}>Contact Me</a>
-        </div>
+        <ContactBlock
+          email={profile.email}
+          emailLabel={profile.emailLabel}
+          github={profile.github}
+          linkedin={profile.linkedin}
+          location={profile.location}
+        />
       </article>
     </section>
   </main>

@@ -6,35 +6,25 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const projectId = project.title
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-|-$/g, "");
 ---
 
-<article class="project-card">
+<article class="project-card" id={projectId}>
   <div class="card-topline">
-    <div>
-      <p class="work-label">{project.workLabel}</p>
+    <div class="project-header">
+      <p class="work-label">{project.label}</p>
       <h3>{project.title}</h3>
     </div>
-    <span class={`status-pill ${project.status === "Active" ? "active" : "progress"}`}>
-      {project.status}
-    </span>
   </div>
+  <p class="project-summary">{project.description}</p>
   <div class="project-detail">
-    <span>Problem</span>
-    <p>{project.problem}</p>
-  </div>
-  <div class="project-detail">
-    <span>Approach</span>
-    <p>{project.approach}</p>
-  </div>
-  <div class="project-detail">
-    <span>Engineering value</span>
-    <p class="impact">{project.engineeringValue}</p>
-  </div>
-  <div class="project-detail">
-    <span>Stack</span>
+    <span>Focus</span>
   </div>
   <ul class="chip-list" aria-label={`${project.title} stack`}>
-    {project.stack.map((item) => (
+    {project.focus.map((item) => (
       <li>{item}</li>
     ))}
   </ul>

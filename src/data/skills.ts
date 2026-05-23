@@ -1,67 +1,32 @@
 export type SkillGroupData = {
   title: string;
-  items: string[];
+  description: string;
 };
 
 export const skillGroups: SkillGroupData[] = [
   {
-    title: "Kubernetes Platform",
-    items: [
-      "Kubernetes",
-      "Helm",
-      "Istio",
-      "Harbor",
-      "cert-manager",
-      "Production on-prem clusters",
-    ],
+    title: "Kubernetes Operations",
+    description:
+      "Deployments, Helm, ingress/gateway, cert-manager, registry integration, troubleshooting.",
   },
   {
-    title: "Infrastructure as Code",
-    items: [
-      "OpenTofu / Terraform",
-      "Ansible",
-      "Proxmox",
-      "Cloudflare DNS",
-      "SOPS",
-      "Age",
-    ],
+    title: "Infrastructure Automation",
+    description:
+      "OpenTofu/Terraform, Ansible, Cloudflare DNS, SOPS/Age, reproducible environments.",
   },
   {
     title: "Observability",
-    items: [
-      "Prometheus",
-      "Grafana",
-      "Alertmanager",
-      "ELK",
-      "Loki",
-      "Platform monitoring",
-    ],
+    description:
+      "Prometheus, Grafana, Alertmanager, Loki, logs, alerts, dashboards, ServiceMonitor patterns.",
   },
   {
     title: "CI/CD",
-    items: [
-      "Jenkins",
-      "GitLab CI",
-      "Git workflows",
-      "Artifact and registry pipelines",
-    ],
+    description:
+      "Jenkins, GitLab CI, GitHub Actions, artifact flow, Kubernetes deployment pipelines.",
   },
   {
-    title: "Programming",
-    items: [
-      "Go automation",
-      "Bash scripting",
-      "Python debugging",
-      "Operator-adjacent tooling",
-    ],
-  },
-  {
-    title: "Infrastructure Leadership",
-    items: [
-      "Platform design",
-      "Architecture trade-offs",
-      "DevOps team leadership",
-      "Stakeholder translation",
-    ],
+    title: "Platform Thinking",
+    description:
+      "Operational clarity, documentation, trade-offs, maintainability, debugging.",
   },
 ];

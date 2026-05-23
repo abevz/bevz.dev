@@ -5,23 +5,23 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: "Kubernetes & DevOps Review",
+    title: "Kubernetes Review",
     description:
-      "A practical review of your Kubernetes setup, deployment flow, monitoring, registry usage, DNS/TLS configuration, and operational weak points. Best suited for small teams, early-stage projects, and homelab-to-production transitions.",
+      "Review cluster structure, deployment flow, DNS/TLS, registry usage, and operational risks.",
   },
   {
-    title: "CI/CD Automation",
+    title: "CI/CD Cleanup",
     description:
-      "Design or clean up pipelines for building, testing, and deploying applications to Kubernetes with safer releases, clearer environments, rollback thinking, and better notifications.",
+      "Improve build and deployment pipelines, environment handling, rollback thinking, and notifications.",
   },
   {
     title: "Observability Setup",
     description:
-      "Prometheus, Grafana, Alertmanager, Loki, dashboards, alerts, and logs so your team can understand what is happening before users report problems.",
+      "Set up or improve metrics, logs, dashboards, and alerting.",
   },
   {
     title: "Infrastructure Automation",
     description:
-      "OpenTofu/Terraform, Ansible, Cloudflare, SOPS/Age, and Git-based workflows for more reproducible infrastructure.",
+      "Make infrastructure more reproducible with IaC, Ansible, Cloudflare, and Git-based workflows.",
   },
 ];

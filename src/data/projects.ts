@@ -5,33 +5,23 @@ export type ProjectLink = {
 
 export type Project = {
   title: string;
-  status: string;
-  workLabel: string;
-  problem: string;
-  approach: string;
-  engineeringValue: string;
-  stack: string[];
+  label: string;
+  description: string;
+  focus: string[];
   links: ProjectLink[];
 };
 
 export const projects: Project[] = [
   {
     title: "Platform-IaC",
-    status: "Active",
-    workLabel: "GitHub Project / Lab Work",
-    problem:
-      "Manual infrastructure setup is hard to reproduce, document, and evolve.",
-    approach:
-      "OpenTofu/Terraform for infrastructure, Ansible for configuration, SOPS/Age for secrets, and Kubernetes automation for platform services.",
-    engineeringValue:
-      "Shows modular infrastructure thinking, repeatability, documentation, and platform automation.",
-    stack: [
+    label: "GitHub Project / Lab Work",
+    description:
+      "Modular infrastructure automation for Kubernetes-oriented environments.",
+    focus: [
       "OpenTofu",
-      "Terraform",
       "Ansible",
       "Kubernetes",
-      "SOPS",
-      "Age",
+      "SOPS/Age",
       "Cloudflare",
     ],
     links: [
@@ -40,57 +30,40 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Kubernetes Observability Stack",
-    status: "Active",
-    workLabel: "Lab Work / Case Study",
-    problem:
-      "Kubernetes environments need clear visibility into workloads, alerts, logs, and operational state.",
-    approach:
-      "kube-prometheus-stack, Grafana, Alertmanager, Loki, Grafana Alloy, ServiceMonitor patterns, and alert routing for production-like operations.",
-    engineeringValue:
-      "Shows practical monitoring, alerting, troubleshooting, dashboarding, and production-like operations.",
-    stack: [
+    title: "Kubernetes Observability",
+    label: "Lab Work / Case Study",
+    description:
+      "Monitoring and alerting patterns for Kubernetes environments using Prometheus, Grafana, Alertmanager, Loki, and Alloy.",
+    focus: [
       "Prometheus Operator",
       "Grafana",
       "Alertmanager",
       "Loki",
       "Alloy",
-      "ServiceMonitor",
     ],
     links: [{ label: "More context", href: "/projects#observability" }],
   },
   {
-    title: "Harbor Registry & Container Runtime Integration",
-    status: "In progress",
-    workLabel: "Case Study / Infrastructure Troubleshooting",
-    problem:
-      "Kubernetes environments need reliable image delivery, private registry access, DockerHub proxy caching, TLS, and predictable container runtime configuration.",
-    approach:
-      "Configured and troubleshot Harbor registry behind reverse proxy/TLS, containerd mirror settings, Kubernetes image pull integration, robot account authentication, and S3-backed registry storage issues.",
-    engineeringValue:
-      "Demonstrates practical understanding of container registry operations, Kubernetes image pulls, container runtime configuration, TLS/reverse proxy behavior, and real infrastructure debugging.",
-    stack: [
+    title: "Harbor Registry Integration",
+    label: "Case Study / Troubleshooting",
+    description:
+      "Private registry, container runtime configuration, TLS, proxy cache, and Kubernetes image pull troubleshooting.",
+    focus: [
       "Harbor",
-      "Kubernetes",
       "containerd",
+      "Kubernetes",
       "S3",
       "TLS",
-      "reverse proxy",
       "Cloudflare DNS",
     ],
     links: [{ label: "More context", href: "/projects#harbor" }],
   },
   {
-    title: "Go Automation Bot",
-    status: "In progress",
-    workLabel: "GitHub Project / In Progress",
-    problem:
-      "Automation workflows need reliable task execution, storage choices, and practical Go-based tooling.",
-    approach:
-      "Go-based automation project with careful choices around SQLite, concurrency, possible NATS JetStream integration, CLI workflows, and agent-like task execution.",
-    engineeringValue:
-      "Shows Go learning applied to DevOps-style automation instead of abstract programming exercises.",
-    stack: ["Go", "SQLite", "NATS JetStream", "CLI", "automation"],
+    title: "Go Automation",
+    label: "GitHub Project / In Progress",
+    description:
+      "Go-based automation work focused on reliable task execution, storage decisions, and practical DevOps tooling.",
+    focus: ["Go", "SQLite", "CLI", "automation", "NATS JetStream"],
     links: [{ label: "GitHub", href: "https://github.com/abevz" }],
   },
 ];
