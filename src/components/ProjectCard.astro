@@ -1,0 +1,36 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const projectId = project.title
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-|-$/g, "");
+---
+
+<article class="project-card" id={projectId}>
+  <div class="card-topline">
+    <div class="project-header">
+      <p class="work-label">{project.label}</p>
+      <h3>{project.title}</h3>
+    </div>
+  </div>
+  <p class="project-summary">{project.description}</p>
+  <div class="project-detail">
+    <span>Focus</span>
+  </div>
+  <ul class="chip-list" aria-label={`${project.title} stack`}>
+    {project.focus.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  <div class="link-row">
+    {project.links.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+</article>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillGroup from "../components/SkillGroup.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { profile } from "../data/profile";
+import { projects } from "../data/projects";
+import { skillGroups } from "../data/skills";
+import { services } from "../data/services";
+---
+
+<BaseLayout
+  title="Aleksey Bevz — DevOps / Platform Engineer"
+  description="DevOps and Platform Engineering portfolio focused on Kubernetes, Infrastructure as Code, CI/CD, Observability and Go automation."
+>
+  <Header />
+  <main>
+    <Hero {...profile} />
+
+    <section class="shell section" id="projects">
+      <SectionHeading
+        title="Selected Work"
+        intro="Infrastructure work and case studies focused on reproducibility, visibility, and operational clarity."
+      />
+      <div class="project-grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section">
+      <SectionHeading
+        title="Core Strengths"
+      />
+      <div class="skill-grid">
+        {skillGroups.map((group) => (
+          <SkillGroup group={group} />
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section">
+      <SectionHeading
+        title="Ways I Can Help"
+        intro="Practical DevOps and platform engineering help for small teams and infrastructure-heavy projects."
+      />
+      <div class="service-grid">
+        {services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </section>
+
+    <section class="shell section split-section">
+      <div>
+        <SectionHeading
+          title="Current Focus"
+        />
+        <ul class="focus-list">
+          {profile.currentFocus.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <article class="contact-card contact-cta">
+        <h3>Contact</h3>
+        <p>{profile.contactText}</p>
+        <ContactBlock
+          email={profile.email}
+          emailLabel={profile.emailLabel}
+          github={profile.github}
+          linkedin={profile.linkedin}
+          location={profile.location}
+        />
+      </article>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

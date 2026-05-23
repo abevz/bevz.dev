@@ -1,0 +1,59 @@
+---
+import TerminalCard from "./TerminalCard.astro";
+
+interface Props {
+  name: string;
+  title: string;
+  tagline: string;
+  summary: string;
+  email: string;
+  emailLabel: string;
+  github: string;
+  linkedin: string;
+  cvHref: string;
+  terminal: {
+    blocks: {
+      command: string;
+      lines: string[];
+    }[];
+  };
+}
+
+const {
+  name,
+  title,
+  tagline,
+  summary,
+  email,
+  emailLabel,
+  github,
+  linkedin,
+  cvHref,
+  terminal,
+} = Astro.props;
+---
+
+<section class="hero shell">
+  <div class="hero-copy">
+    <h1>{name}</h1>
+    <p class="hero-title">{title}</p>
+    <p class="hero-tagline">{tagline}</p>
+    <div class="hero-summary">
+      {summary.split("\n\n").map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+    <div class="cta-row">
+      <a class="button primary" href="/projects">View Work</a>
+      <a class="button" href={cvHref}>Download CV</a>
+    </div>
+    <p class="subtle-links">
+      <a href={github} target="_blank" rel="noreferrer">GitHub</a>
+      <span>·</span>
+      <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <span>·</span>
+      <a href={`mailto:${email}`}>{emailLabel}</a>
+    </p>
+  </div>
+  <TerminalCard {...terminal} />
+</section>

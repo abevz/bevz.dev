@@ -1,0 +1,32 @@
+---
+interface Props {
+  blocks: {
+    command: string;
+    lines: string[];
+  }[];
+}
+
+const { blocks } = Astro.props;
+---
+
+<section class="terminal-card" aria-label="Terminal style profile summary">
+  <div class="terminal-bar">
+    <p>platform console</p>
+    <div class="terminal-meta">
+      <span>ops</span>
+      <span>production + lab</span>
+    </div>
+  </div>
+  <div class="terminal-body">
+    {blocks.map((block) => (
+      <div class="terminal-block">
+        <p><span class="prompt">$</span> <span class="command">{block.command}</span></p>
+        <ul class="terminal-list">
+          {block.lines.map((line) => (
+            <li class={`output ${block.command === "status" ? "status" : ""}`}>{line}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

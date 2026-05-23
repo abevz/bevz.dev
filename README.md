@@ -2,36 +2,38 @@
 
 Personal site for `bevz.dev`.
 
-The first version is a static portfolio site for Aleksey Bevz as a DevOps /
-Platform Engineer with emphasis on Kubernetes, Infrastructure as Code, CI/CD,
-Observability, Cloudflare, and Go automation.
+The current version is a static public profile for Aleksey Bevz as a hands-on
+DevOps / Platform Engineer. It is meant to be calm, concise, and publishable:
+clear positioning, selected engineering work, short engineering notes, and a
+direct contact path.
 
 ## Current State
 
-This repository is intentionally in the planning and structure phase.
+The site is implemented and buildable.
 
 What exists now:
 
-- project brief in [bevz_dev_codex_brief.md](./bevz_dev_codex_brief.md)
-- repository workflow guidance in [AGENTS.md](./AGENTS.md)
-- initial project plan in [docs/PLAN.md](./docs/PLAN.md)
-- initial information architecture in [docs/STRUCTURE.md](./docs/STRUCTURE.md)
-- starter directory skeleton for the Astro implementation
+- main landing page at `/`
+- supporting pages for `/projects`, `/notes`, and `/cv`
+- Ayu-inspired visual system with golden dragon brand mark
+- typed data sources for profile, work cards, services, skills, and notes
+- static Astro build ready for GitHub -> Cloudflare Pages deployment
+- repository guidance in [AGENTS.md](./AGENTS.md)
+- planning docs in [docs/PLAN.md](./docs/PLAN.md), [docs/STRUCTURE.md](./docs/STRUCTURE.md), and [docs/NOTES.md](./docs/NOTES.md)
 
 ## Intended Stack
 
 - Astro
-- Tailwind CSS
-- Markdown / MDX
+- TypeScript data modules for concise site content
+- Markdown / MDX for future full engineering notes
 - Cloudflare Pages
-- Cloudflare Web Analytics
+- optional analytics later
 
-## Target Outcome For V1
+## Public Scope
 
-- landing page at `bevz.dev`
-- supporting pages for `/projects` and `/cv`
-- Ayu-inspired design system
-- clear project cards and contact links
+- calm public profile at `bevz.dev`
+- pages for selected engineering work, notes, and short-form CV
+- no fake blog content or inflated consulting copy
 - static deploy from GitHub to Cloudflare Pages
 
 ## Repository Layout
@@ -40,13 +42,21 @@ What exists now:
 docs/                  Planning and structure docs
 public/                Static assets
 src/components/        Astro UI components
+src/content/notes/     Future full note articles in Markdown / MDX
 src/data/              Typed project/content data
 src/layouts/           Shared page layouts
 src/pages/             Route entrypoints
 src/styles/            Global styles and theme tokens
 ```
 
-## Next Build Step
+## Local Build
 
-The next implementation step is to scaffold the Astro project itself into the
-existing structure and turn the planning docs into a working site shell.
+```bash
+ASTRO_TELEMETRY_DISABLED=1 npm run build
+```
+
+## Content Notes
+
+- note listing cards currently come from [src/data/notes.ts](./src/data/notes.ts)
+- future full note articles should live under `src/content/notes/`
+- the writing contract for future articles is documented in [docs/NOTES.md](./docs/NOTES.md)

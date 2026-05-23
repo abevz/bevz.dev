@@ -1,0 +1,22 @@
+---
+import type { Note } from "../data/notes";
+
+interface Props {
+  note: Note;
+}
+
+const { note } = Astro.props;
+---
+
+<article class="note-card note-entry">
+  <h3>{note.title}</h3>
+  <p>{note.description}</p>
+  <div class="note-footer">
+    <ul class="chip-list" aria-label={`${note.title} tags`}>
+      {note.tags.map((tag) => (
+        <li>{tag}</li>
+      ))}
+    </ul>
+    <span class="note-status">Planned</span>
+  </div>
+</article>

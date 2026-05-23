@@ -1,0 +1,14 @@
+---
+import type { SkillGroupData } from "../data/skills";
+
+interface Props {
+  group: SkillGroupData;
+}
+
+const { group } = Astro.props;
+---
+
+<article class="skill-card">
+  <h3>{group.title}</h3>
+  <p>{group.description}</p>
+</article>
