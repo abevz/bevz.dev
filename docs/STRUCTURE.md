@@ -7,17 +7,18 @@
 ```text
 /             Main landing page
 /projects     Project overview page
+/notes        Engineering notes index
 /cv           CV / resume page
 ```
 
 ### Later routes
 
 ```text
-/notes
+/notes/[slug]
 /projects/platform-iac
 /projects/kubernetes-observability
-/projects/harbor-registry
-/projects/go-automation-bot
+/projects/harbor-registry-integration
+/projects/go-automation
 ```
 
 ## Content Model
@@ -34,21 +35,38 @@
 
 ### Project data
 
-Each featured project should support:
+Each selected work item should support:
 
 - title
+- label
 - description
-- stack
-- status
+- focus tags
 - links
-- short evidence / outcome framing
+
+### Notes data
+
+The notes index currently supports:
+
+- slug
+- title
+- description
+- tags
+- outline
+
+Future full note pages should also support:
+
+- published / draft state
+- publish date
+- optional updated date
+- body content in Markdown / MDX
 
 ## Proposed Source Layout
 
 ```text
 public/
-  favicon/
-  images/
+  dragon-mark.png
+  favicon.png
+  og-image.png
 
 src/
   components/
@@ -56,20 +74,28 @@ src/
     Footer.astro
     Header.astro
     Hero.astro
+    NoteCard.astro
     ProjectCard.astro
     SectionHeading.astro
+    ServiceCard.astro
     SkillGroup.astro
     TerminalCard.astro
+  content/
+    notes/
   data/
+    notes.ts
     profile.ts
     projects.ts
+    services.ts
     skills.ts
   layouts/
     BaseLayout.astro
   pages/
-    index.astro
-    projects.astro
     cv.astro
+    index.astro
+    notes.astro
+    notes/[slug].astro
+    projects.astro
   styles/
     global.css
 ```
@@ -85,9 +111,8 @@ src/
 
 ## Implementation Sequence
 
-1. Add Astro scaffolding and scripts.
-2. Add global CSS variables and base layout.
-3. Add page skeletons with placeholder content.
-4. Add reusable section components.
-5. Fill project and profile data.
-6. Refine copy and responsive layout.
+1. Keep concise site content in typed data modules.
+2. Keep future long-form notes in `src/content/notes/`.
+3. Promote a note from listing-only to full article only when real content exists.
+4. Keep `/notes` useful even without a full article for every topic.
+5. Prefer honest status labels over fake read links or placeholder copy.

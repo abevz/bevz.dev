@@ -442,10 +442,91 @@ ul {
   flex-direction: column;
 }
 
-.note-link-muted {
+.note-footer {
   margin-top: auto;
-  color: var(--text-dim);
-  font-size: 0.82rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.note-footer .chip-list {
+  margin: 0.4rem 0 0;
+}
+
+.note-status {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid rgba(45, 51, 67, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 204, 102, 0.08);
+  color: var(--accent);
+  font-size: 0.76rem;
+  line-height: 1;
+}
+
+.note-page {
+  width: min(760px, 100%);
+}
+
+.note-kicker {
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.note-page h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.02;
+  margin-bottom: 0.75rem;
+}
+
+.note-lead {
+  max-width: 40rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.note-page-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.note-page-meta .chip-list {
+  margin: 0;
+}
+
+.note-section + .note-section {
+  margin-top: 1.25rem;
+}
+
+.note-section h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.note-section p {
+  color: var(--text-muted);
+}
+
+.note-callout {
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid rgba(45, 51, 67, 0.8);
+  border-radius: 18px;
+  background: rgba(19, 23, 33, 0.5);
+}
+
+.note-backlink {
+  margin-top: 1.5rem;
+  font-size: 0.92rem;
 }
 
 .project-detail {
@@ -547,6 +628,12 @@ ul {
   .nav-list {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .note-page-meta,
+  .note-footer {
+    align-items: start;
+    flex-direction: column;
   }
 
   .terminal-bar {
