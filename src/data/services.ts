@@ -15,9 +15,9 @@ export const services: Service[] = [
       "Improve build and deployment pipelines, environment handling, rollback thinking, and notifications.",
   },
   {
-    title: "Observability Setup",
+    title: "Monitoring Setup",
     description:
-      "Set up or improve metrics, logs, dashboards, and alerting.",
+      "Set up or improve practical metrics, logs, dashboards, and alerting for Kubernetes services.",
   },
   {
     title: "Infrastructure Automation",

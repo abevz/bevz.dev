@@ -30,18 +30,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Kubernetes Observability",
+    title: "Kubernetes Monitoring",
     label: "Lab Work / Case Study",
     description:
-      "Monitoring and alerting patterns for Kubernetes environments using Prometheus, Grafana, Alertmanager, Loki, and Alloy.",
+      "Practical monitoring and troubleshooting patterns for Kubernetes environments using Prometheus, Grafana, logs, dashboards, and alerts.",
     focus: [
-      "Prometheus Operator",
+      "Prometheus",
       "Grafana",
-      "Alertmanager",
-      "Loki",
-      "Alloy",
+      "ELK/OpenSearch",
+      "Dashboards",
+      "Troubleshooting",
     ],
-    links: [{ label: "More context", href: "/projects#kubernetes-observability" }],
+    links: [{ label: "More context", href: "/projects#kubernetes-monitoring" }],
   },
   {
     title: "Harbor Registry Integration",
