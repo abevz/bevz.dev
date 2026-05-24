@@ -1,23 +1,23 @@
 export const profile = {
   name: "Aleksey Bevz",
-  title: "DevOps / Platform Engineer",
+  title: "Senior DevOps / Platform Engineer",
   tagline:
-    "I build and improve Kubernetes-based infrastructure, CI/CD workflows, observability, and automation.",
+    "I build and improve Kubernetes-based infrastructure, CI/CD workflows, monitoring, and automation.",
   summary:
-    "Production infrastructure experience at Ukrenergo.\n\nProduction-like lab practice for platform engineering patterns.",
+    "4+ years of production Kubernetes platform experience at Ukrenergo Digital Solutions.\n\nCurrently strengthening AWS, Terraform/OpenTofu, GitOps, and Go-based Kubernetes controller skills through platform engineering lab work.",
   location: "Poland / Warsaw",
-  email: "aleksey@bevz.dev",
-  emailLabel: "aleksey@bevz.dev",
+  email: "aleksey.bevz@gmail.com",
+  emailLabel: "aleksey.bevz@gmail.com",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
   cvHref: "/cv",
   contactText:
-    "Open to DevOps roles, platform engineering work, infrastructure automation, Kubernetes reviews, CI/CD cleanup, and observability setup.",
+    "Legal-safe public profile for Senior DevOps / Platform Engineering work. Public job-search activation is gated by current residence-card status.",
   currentFocus: [
     "Making Kubernetes environments more reproducible and easier to operate",
     "Turning troubleshooting work into reusable documentation and case studies",
     "Applying Go to practical DevOps automation",
-    "Strengthening AWS, Terraform/OpenTofu, and cloud-native certification path",
+    "Strengthening AWS, Terraform/OpenTofu, GitOps, and Kubernetes controller skills",
   ],
   certifications: [
     "Kubestronaut",
@@ -48,13 +48,13 @@ export const profile = {
           "kubernetes",
           "iac",
           "ci-cd",
-          "observability",
+          "monitoring",
           "automation",
         ],
       },
       {
         command: "status",
-        lines: ["open-to-selected-devops-work"],
+        lines: ["legal-safe-profile"],
       },
     ],
   },

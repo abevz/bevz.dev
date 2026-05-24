@@ -15,9 +15,9 @@ export const skillGroups: SkillGroupData[] = [
       "OpenTofu/Terraform, Ansible, Cloudflare DNS, SOPS/Age, reproducible environments.",
   },
   {
-    title: "Observability",
+    title: "Monitoring",
     description:
-      "Prometheus, Grafana, Alertmanager, Loki, logs, alerts, dashboards, ServiceMonitor patterns.",
+      "Prometheus, Grafana, ELK/OpenSearch, logs, dashboards, resource usage, and incident troubleshooting.",
   },
   {
     title: "CI/CD",

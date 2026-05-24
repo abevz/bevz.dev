@@ -16,7 +16,7 @@
 ```text
 /notes/[slug]
 /projects/platform-iac
-/projects/kubernetes-observability
+/projects/kubernetes-monitoring
 /projects/harbor-registry-integration
 /projects/go-automation
 ```
@@ -31,7 +31,7 @@
 - summary
 - contact links
 - location
-- open-to-work status
+- legal-safe public profile status
 
 ### Project data
 
