@@ -30,40 +30,32 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Kubernetes Monitoring",
-    label: "Lab Work / Case Study",
+    title: "Platform-IaC-GitOps",
+    label: "GitHub Project / GitOps Layer",
     description:
-      "Practical monitoring and troubleshooting patterns for Kubernetes environments using Prometheus, Grafana, logs, dashboards, and alerts.",
+      "GitOps layer for Kubernetes platform operations with ArgoCD, External Secrets, Vault, Kyverno, Istio, and cosign.",
     focus: [
-      "Prometheus",
-      "Grafana",
-      "ELK/OpenSearch",
-      "Dashboards",
-      "Troubleshooting",
+      "ArgoCD",
+      "External Secrets",
+      "Vault",
+      "Kyverno",
+      "Istio",
+      "cosign",
     ],
-    links: [{ label: "More context", href: "/projects#kubernetes-monitoring" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/abevz/platform-iac-gitops" },
+      { label: "More context", href: "/projects#platform-iac-gitops" },
+    ],
   },
   {
-    title: "Harbor Registry Integration",
-    label: "Case Study / Troubleshooting",
+    title: "democicd",
+    label: "GitHub Project / Supply Chain Demo",
     description:
-      "Private registry, container runtime configuration, TLS, proxy cache, and Kubernetes image pull troubleshooting.",
-    focus: [
-      "Harbor",
-      "containerd",
-      "Kubernetes",
-      "S3",
-      "TLS",
-      "Cloudflare DNS",
+      "Demo Go app validating a secure CI/CD supply chain: Kaniko build, Trivy scan, cosign signing, and GitOps deployment via ArgoCD with Kyverno guardrails.",
+    focus: ["Go", "Kaniko", "Trivy", "cosign", "ArgoCD", "Kyverno"],
+    links: [
+      { label: "GitHub", href: "https://github.com/abevz/democicd" },
+      { label: "More context", href: "/projects#democicd" },
     ],
-    links: [{ label: "More context", href: "/projects#harbor-registry-integration" }],
-  },
-  {
-    title: "Go Automation",
-    label: "GitHub Project / In Progress",
-    description:
-      "Go-based automation work focused on reliable task execution, storage decisions, and practical DevOps tooling.",
-    focus: ["Go", "SQLite", "CLI", "automation", "NATS JetStream"],
-    links: [{ label: "GitHub", href: "https://github.com/abevz" }],
   },
 ];

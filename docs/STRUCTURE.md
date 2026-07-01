@@ -16,9 +16,8 @@
 ```text
 /notes/[slug]
 /projects/platform-iac
-/projects/kubernetes-monitoring
-/projects/harbor-registry-integration
-/projects/go-automation
+/projects/platform-iac-gitops
+/projects/democicd
 ```
 
 ## Content Model

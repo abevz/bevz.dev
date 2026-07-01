@@ -10,7 +10,7 @@ export const profile = {
   emailDomain: "gmail.com",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
-  cvHref: "/cv",
+  cvHref: "/Aleksey-Bevz-CV.pdf",
   contactText:
     "Legal-safe public profile for Senior DevOps / Platform Engineering work. Public job-search activation is gated by current residence-card status.",
   currentFocus: [
