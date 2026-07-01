@@ -8,18 +8,6 @@ export type Note = {
 
 export const notes: Note[] = [
   {
-    slug: "irsa-vs-eks-pod-identity",
-    title: "IRSA vs EKS Pod Identity",
-    description:
-      "A practical comparison of AWS IAM approaches for Kubernetes workloads.",
-    tags: ["AWS", "EKS", "IAM", "Kubernetes"],
-    outline: [
-      "Where IRSA still fits well and where Pod Identity reduces operational friction",
-      "Differences in setup, trust model, and day-2 maintenance",
-      "What to consider when choosing one model for a small or growing EKS platform",
-    ],
-  },
-  {
     slug: "harbor-registry-container-runtime-troubleshooting",
     title: "Harbor Registry & Container Runtime Troubleshooting",
     description:

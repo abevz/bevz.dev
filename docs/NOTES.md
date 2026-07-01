@@ -49,8 +49,8 @@ Use the same slug as in `src/data/notes.ts`.
 Examples:
 
 ```text
-src/content/notes/irsa-vs-eks-pod-identity.md
 src/content/notes/harbor-registry-container-runtime-troubleshooting.md
+src/content/notes/kube-prometheus-stack-troubleshooting.md
 ```
 
 ## Frontmatter Contract
@@ -129,5 +129,4 @@ What to repeat, what to avoid, and when this pattern fits.
 These are strong first real notes for the site:
 
 - `harbor-registry-container-runtime-troubleshooting`
-- `irsa-vs-eks-pod-identity`
 - `kube-prometheus-stack-troubleshooting`
