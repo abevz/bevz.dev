@@ -6,8 +6,8 @@ export const profile = {
   summary:
     "4+ years of production Kubernetes platform experience at Ukrenergo Digital Solutions.\n\nCurrently strengthening AWS, Terraform/OpenTofu, GitOps, and Go-based Kubernetes controller skills through platform engineering lab work.",
   location: "Poland / Warsaw",
-  email: "aleksey.bevz@gmail.com",
-  emailLabel: "aleksey.bevz@gmail.com",
+  emailUser: "aleksey.bevz",
+  emailDomain: "gmail.com",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
   cvHref: "/cv",

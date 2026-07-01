@@ -17,6 +17,8 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/index.css" />
     <meta name="theme-color" content="#0f1419" />
     <link rel="canonical" href={`https://bevz.dev${Astro.url.pathname}`} />
     <link rel="icon" type="image/png" href="/favicon.png" />

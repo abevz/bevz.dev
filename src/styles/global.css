@@ -291,6 +291,23 @@ ul {
   box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
 }
 
+.project-card,
+.skill-card,
+.service-card,
+.note-card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+@media (hover: hover) {
+  .project-card:hover,
+  .skill-card:hover,
+  .service-card:hover,
+  .note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 54px rgba(0, 0, 0, 0.35);
+  }
+}
+
 .terminal-card {
   overflow: hidden;
 }
@@ -341,6 +358,7 @@ ul {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
   line-height: 1.38;
+  overflow-x: auto;
 }
 
 .terminal-block + .terminal-block {
@@ -408,12 +426,7 @@ ul {
   padding: 0.95rem 0.95rem 0.9rem;
 }
 
-.service-card {
-  background: linear-gradient(180deg, rgba(31, 36, 48, 0.92), rgba(19, 23, 33, 0.98));
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
-}
+
 
 .work-label {
   margin-bottom: 0.28rem;
@@ -584,6 +597,12 @@ ul {
 
 .contact-cta {
   align-self: start;
+}
+
+.cv-grid .note-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .contact-card .contact-card {

@@ -1,18 +1,18 @@
 ---
 interface Props {
-  email: string;
-  emailLabel: string;
+  emailUser: string;
+  emailDomain: string;
   github: string;
   linkedin: string;
   location: string;
 }
 
-const { email, emailLabel, github, linkedin, location } = Astro.props;
+const { emailUser, emailDomain, github, linkedin, location } = Astro.props;
 ---
 
 <section class="contact-card">
   <ul class="contact-list">
-    <li><span>Email</span><a href={`mailto:${email}`}>{emailLabel}</a></li>
+    <li><span>Email</span><a href="#" class="email-link" data-user={emailUser} data-domain={emailDomain}>email</a></li>
     <li><span>GitHub</span><a href={github} target="_blank" rel="noreferrer">github.com/abevz</a></li>
     <li><span>LinkedIn</span><a href={linkedin} target="_blank" rel="noreferrer">aleksey-bevz</a></li>
     <li><span>Location</span><strong>{location}</strong></li>

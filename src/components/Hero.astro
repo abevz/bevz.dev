@@ -6,8 +6,8 @@ interface Props {
   title: string;
   tagline: string;
   summary: string;
-  email: string;
-  emailLabel: string;
+  emailUser: string;
+  emailDomain: string;
   github: string;
   linkedin: string;
   cvHref: string;
@@ -24,8 +24,8 @@ const {
   title,
   tagline,
   summary,
-  email,
-  emailLabel,
+  emailUser,
+  emailDomain,
   github,
   linkedin,
   cvHref,
@@ -52,8 +52,22 @@ const {
       <span>·</span>
       <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       <span>·</span>
-      <a href={`mailto:${email}`}>{emailLabel}</a>
+      <a href="#" class="email-link" data-user={emailUser} data-domain={emailDomain}>email</a>
     </p>
   </div>
   <TerminalCard {...terminal} />
 </section>
+<script is:inline>
+  (function(){
+    var links = document.querySelectorAll('.email-link');
+    for (var i = 0; i < links.length; i++) {
+      var el = links[i];
+      var user = el.getAttribute('data-user');
+      var domain = el.getAttribute('data-domain');
+      if (user && domain) {
+        el.href = 'mailto:' + user + '@' + domain;
+        el.textContent = user + '@' + domain;
+      }
+    }
+  })();
+</script>
