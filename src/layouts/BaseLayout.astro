@@ -4,9 +4,10 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
+  robots?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, robots } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,6 +17,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/index.css" />

@@ -3,5 +3,9 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://bevz.dev",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !/\/notes\/[^/]+\/?$/.test(page),
+    }),
+  ],
 });

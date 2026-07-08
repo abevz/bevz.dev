@@ -31,6 +31,7 @@ const {
   cvHref,
   terminal,
 } = Astro.props;
+const emailAddress = `${emailUser}@${emailDomain}`;
 ---
 
 <section class="hero shell">
@@ -52,22 +53,8 @@ const {
       <span>·</span>
       <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       <span>·</span>
-      <a href="#" class="email-link" data-user={emailUser} data-domain={emailDomain}>email</a>
+      <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
     </p>
   </div>
   <TerminalCard {...terminal} />
 </section>
-<script is:inline>
-  (function(){
-    var links = document.querySelectorAll('.email-link');
-    for (var i = 0; i < links.length; i++) {
-      var el = links[i];
-      var user = el.getAttribute('data-user');
-      var domain = el.getAttribute('data-domain');
-      if (user && domain) {
-        el.href = 'mailto:' + user + '@' + domain;
-        el.textContent = user + '@' + domain;
-      }
-    }
-  })();
-</script>

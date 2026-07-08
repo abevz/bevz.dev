@@ -17,6 +17,7 @@ const { note } = Astro.props;
 <BaseLayout
   title={`${note.title} — Aleksey Bevz`}
   description={note.description}
+  robots="noindex, nofollow"
 >
   <Header />
   <main class="shell section page-top">
