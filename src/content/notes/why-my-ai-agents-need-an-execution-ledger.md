@@ -1,6 +1,6 @@
 ---
 title: "Why My AI Agents Need an Execution Ledger"
-description: "How a single-writer daemon, renewable leases, and Git worktrees turned parallel coding agents into an auditable workflow."
+description: "How a corrupted task-tracker journal led me to a single-writer daemon, renewable leases, and an auditable workflow for coding agents."
 tags:
   - AI agents
   - Go
@@ -10,32 +10,34 @@ status: "published"
 publishedAt: "2026-07-22"
 ---
 
-Running one coding agent is easy to understand. It gets a task, changes files,
-and returns a result.
+The command that finally pushed me to build a coordinator was this:
 
-Running several agents across multiple repositories and Git worktrees creates a
-different problem. The difficult question is no longer, “Can an agent write the
-code?” It is, “Can every worker see the same execution state, and can I trust
-that state afterwards?”
+```text
+dolt fsck --revive-journal-with-data-loss
+```
 
-I kept seeing the same quiet failure modes: two workers starting the same task,
-work landing in the wrong checkout, dependencies being missed, and abandoned
-work looking permanently owned. None of these failures makes a dramatic demo.
-Together, they make unattended automation hard to trust.
+My agents were using Beads as a task tracker, backed by a shared Dolt service.
+The service had entered a crash loop because its chunk journal was corrupted.
+Before an agent could even list its work, I had to stop the service, find a
+stray Dolt process occupying the port, copy the database, repair the journal,
+and start everything again.
 
-That is why I built
-[`af-coordinator`](https://github.com/abevz/af-coordinator): a local-first
-execution ledger for AI agents.
+The data survived. My confidence in the operating model did not.
 
-## The storage model was the first design decision
+The tracker had become a prerequisite for doing any work, yet several agents
+were reaching it through shell commands and shared synchronization. A failure
+in that layer could stop every repository attached to it.
 
-Before `af-coordinator`, I used useful task-flow ideas from Beads: short task
-IDs, dependencies, a computed ready queue, and notes. My setup also used a
-shared Dolt database. After recovering a corrupted journal, the mismatch became
-clear. The workflow ideas were valuable; putting shared, multi-writer,
-operational state behind shell-driven synchronization was the fragile part.
+I still liked the workflow: short issue IDs, dependencies, notes, and a
+computed ready queue. I did not want to throw those away. I wanted a less
+fragile owner for the live state.
 
-I kept the task semantics and replaced the write model:
+That became
+[`af-coordinator`](https://github.com/abevz/af-coordinator).
+
+## One process is allowed to write
+
+The core architecture is deliberately boring:
 
 ```text
 agents / scripts / tools
@@ -48,19 +50,24 @@ af-coordinatord
 SQLite in WAL mode
 ```
 
-The important property is not SQLite by itself. It is that one daemon owns all
-writes. Agents never open the database directly. The daemon validates state
-transitions, allocates IDs, manages leases, rejects dependency cycles, and
-records an append-only event trail.
+Agents never open SQLite. They ask the daemon to create an issue, claim it,
+renew a lease, add a note, or close the work. The daemon checks the transition
+and records an event.
 
-For a personal agent fleet on one machine, a Unix socket keeps the service
-local and avoids inventing a network security model before one is needed.
-SQLite keeps backup and recovery simple while the daemon preserves a clear
-single-writer boundary.
+This removed an entire category of questions from the clients. They do not
+need to know how IDs are allocated, whether a dependency creates a cycle, or
+how concurrent claims are serialized. There is one place where those rules are
+enforced.
 
-## A claim is a lease, not an assignment
+I chose a Unix socket because the coordinator currently lives on my laptop.
+There is no reason to expose a port for local workers. I chose SQLite because I
+can inspect, back up, and restore it without operating another database service.
+WAL improves concurrency, but the more important constraint is still the same:
+only the daemon writes.
 
-The worker protocol is deliberately small:
+## An agent owns work only while its lease is alive
+
+The worker loop fits on one line:
 
 ```text
 ready -> claim -> heartbeat -> note -> close
@@ -68,114 +75,84 @@ ready -> claim -> heartbeat -> note -> close
                                +-> handoff and release
 ```
 
-`ready` is computed from issue status, dependencies, and current leases. A
-worker claims an issue for a limited time and receives a secret lease token. It
-renews that lease while working. If it disappears, the lease expires and the
-issue can return to the ready pool.
+`ready` does not mean “present in the backlog.” It means the issue is open, its
+blocking dependencies are complete, and nobody holds a valid lease.
 
-This matters because autonomous workers fail differently from people. A human
-assignment can remain on a board until someone notices it. A crashed process
-should not own work forever.
+When a worker claims an issue, it receives a secret lease token. It renews the
+lease while working. If the process disappears, ownership expires instead of
+remaining stuck on an agent that no longer exists.
 
-The coordinator also turns concurrency failures into stable machine-readable
-results. If two workers race to claim one issue, exactly one succeeds. The
-other receives `lease_held` and can select different work instead of parsing a
-paragraph of error text.
+Two workers can still race for the same issue. That is expected. The daemon
+commits one claim and returns `lease_held` to the loser. The losing worker can
+pick another issue without guessing whether the first claim succeeded.
 
-## Git and the coordinator own different truths
+Handoff needed its own operation for the same reason. “Write a note, then
+release” looks like two simple commands until the process dies between them.
+The coordinator now stores the `HANDOFF:` note and releases the lease in one
+transaction.
 
-I do not want an issue database hidden inside Git, and I do not want an
-execution ledger to replace specifications.
+## Specs, execution state, and Git have different jobs
 
-The boundary I use is:
+I use three records rather than forcing one tool to describe everything:
 
-| Concern | Source of truth |
+| Record | What it owns |
 |---|---|
-| Requirements and design | Spec files in Git |
-| Live ownership, attempts, blockers, and handoffs | `af-coordinator` |
-| Implementation and review | Worktree, branch, commit, and pull request |
+| Specification files | Requirements, design, and acceptance criteria |
+| `af-coordinator` | Readiness, leases, attempts, blockers, and handoffs |
+| Git | Worktree, branch, commit, and pull-request evidence |
 
-Each agent works in an isolated sibling worktree. The issue can link to the
-relevant spec before work starts and to the branch, pull request, and commit
-when it closes. This creates an audit path from intent to execution to evidence
-without putting transient leases or runtime data in the repository.
+An issue links to the relevant spec. The agent works in a sibling Git worktree.
+When the issue closes, it can record the branch, pull request, and merge commit.
 
-The distinction is also useful when reviewing AI-heavy work. A list of closed
-issues with merge commits gives me the exact review scope. The bookkeeping that
-prevents duplicate execution becomes a map of what the agents actually changed.
+This turned out to help with review as much as coordination. When agents have
+produced a large set of changes, I can query the completed issues and recover
+the exact commits that belong to a phase. I do not have to reconstruct the
+scope from branch names or a long Git log.
 
-## Dogfooding changed the design
+## The coordinator found its own bugs
 
-The coordinator tracks its own development. Before editing the repository, a
-worker checks the `afc` ready queue, claims the matching issue, works in a
-sibling worktree, and closes or hands it off with a note.
+`af-coordinator` tracks work on `af-coordinator`. A worker must claim an `afc`
+issue before editing the repository, use a separate worktree, and finish with a
+close or an explicit handoff.
 
-That exposed problems that a whiteboard design did not: leaked lease tokens,
-ambiguous identifiers, stale installed binaries, missing atomic handoff, and
-confusing dependency direction. Those failures became specs, regression tests,
-and protocol changes.
+That loop exposed defects I had not anticipated in the first design:
 
-At the time of writing, the live coordinator contains 403 issues across nine
-projects, with 336 completed. The `af-coordinator` project itself had completed
-50 of 56 issues in the statistics snapshot used for this article. The numbers
-are not a scale claim; they show that the protocol is being exercised by real
-daily work rather than only unit tests.
+- a detail endpoint leaked a lease token;
+- an installed daemon could be older than the CLI that was calling it;
+- dependency direction was easy to read backwards;
+- close and handoff needed stronger atomicity;
+- multiple sessions could accidentally report the same actor identity.
 
-Most of the Go implementation was produced by AI agents working from my specs
-and review. My role is architecture, protocol design, task slicing, review, and
-operation. I think that distinction is worth stating plainly: the interesting
-engineering result is not pretending I typed every line. It is building a
-system in which agent-produced changes remain bounded and reconstructable.
+These were not hypothetical backlog items. They interrupted real sessions, so
+they became specs and regression tests.
 
-## What the coordinator is not
+On 22 July 2026, my local coordinator held 403 issues across nine projects; 336
+were completed. This is still a personal system on one machine. The useful part
+of those numbers is simply that the design has been exercised outside its own
+test suite.
 
-`af-coordinator` is not a project-management UI, an agent runtime, or a
-distributed workflow engine. It does not replace Temporal in my agent factory,
-and it does not make GitHub Issues mandatory.
+Most of the Go implementation was produced by AI agents from my specifications
+and reviewed by me. I designed the protocol, split the work, reviewed the
+changes, and operate the result. I am not presenting the repository as 403
+handwritten tasks. The project is evidence of a different skill: making
+agent-produced work bounded, reviewable, and recoverable.
 
-It answers a smaller set of operational questions:
+## Where I am stopping for now
 
-- What work is actually ready?
-- Who holds it now?
-- What blocks it?
-- What happened during the attempt?
-- Can another worker continue safely?
+Today the coordinator is local-first. It has no web UI, no distributed
+database, and no built-in synchronization with GitHub Issues. Those are not
+missing checkboxes I intend to fill automatically.
 
-That narrow scope is a feature. A local daemon and SQLite are enough until a
-real requirement proves otherwise.
+The next change is smaller and more important: protect privileged operator
+actions so an autonomous runner cannot use the same override path as the human
+operator.
 
-## What comes next
+I may later run workers on Proxmox while keeping the daemon and SQLite on my
+laptop. That would require an authenticated network listener with per-worker
+identity. Opening the existing API on the LAN with one shared key would make
+the audit log less trustworthy, so I will not call that a shortcut.
 
-The next priority is not “more orchestration.” It is a stronger trust boundary
-for privileged operator actions, followed by basic public-release hygiene and
-a reproducible concurrent-claim demo.
-
-I do have a concrete remote-worker use case: keep the coordinator and database
-on my laptop while some workers run on Proxmox VMs or containers in the same
-home network. If I implement it, the Unix socket will remain the default and an
-optional authenticated network listener will sit over the same API. It will
-need per-worker identity, authorization, TLS or an equivalent private-network
-envelope, request limits, and idempotency. Simply opening the current local API
-with one shared key would destroy the audit guarantees the project exists to
-provide.
-
-External trackers are a later adapter problem. Some of my work is on GitHub,
-some is not. The coordinator should continue to own execution state while
-GitHub, GitLab, Markdown specs, or native issues remain optional planning and
-reporting surfaces.
-
-## The practical lesson
-
-When coding agents become parallel workers, the missing layer is often not a
-smarter model. It is explicit operational state.
-
-For my setup, four rules carry most of the value:
-
-1. Give writes one authority.
-2. Use expiring leases instead of permanent assignment.
-3. Keep specs, execution state, and code review as separate truths.
-4. Enforce the protocol where tools mutate state; documentation alone is not a
-   concurrency control mechanism.
-
-The implementation is intentionally small. The confidence comes from knowing
-who may change state, why a task is ready, and how the next worker can continue.
+I started this project because two agents should not silently take the same
+task. The more valuable result is that, the next morning, I can tell what they
+claimed, what changed, where the code landed, and whether another worker can
+continue safely.

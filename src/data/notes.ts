@@ -13,7 +13,7 @@ export const notes: Note[] = [
     slug: "why-my-ai-agents-need-an-execution-ledger",
     title: "Why My AI Agents Need an Execution Ledger",
     description:
-      "How a single-writer daemon, renewable leases, and Git worktrees turned parallel coding agents into an auditable workflow.",
+      "How a corrupted task-tracker journal led me to a single-writer daemon, renewable leases, and an auditable workflow for coding agents.",
     tags: ["AI agents", "Go", "SQLite", "Git worktrees"],
     outline: [],
     status: "published",
