@@ -1,56 +1,47 @@
 ---
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { notes } from "../../data/notes";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const notes = await getCollection("notes", ({ data }) => data.status === "published");
+
   return notes.map((note) => ({
-    params: { slug: note.slug },
+    params: { slug: note.id },
     props: { note },
   }));
 }
 
 const { note } = Astro.props;
+const { Content } = await render(note);
 ---
 
 <BaseLayout
-  title={`${note.title} — Aleksey Bevz`}
-  description={note.description}
-  robots="noindex, nofollow"
+  title={`${note.data.title} — Aleksey Bevz`}
+  description={note.data.description}
+  ogType="article"
+  publishedAt={note.data.publishedAt}
 >
   <Header />
   <main class="shell section page-top">
     <article class="note-page">
-      <p class="note-kicker">Engineering Note</p>
-      <h1>{note.title}</h1>
-      <p class="note-lead">{note.description}</p>
+      <p class="note-kicker">Engineering Article</p>
+      <h1>{note.data.title}</h1>
+      <p class="note-lead">{note.data.description}</p>
 
       <div class="note-page-meta">
-        <ul class="chip-list" aria-label={`${note.title} tags`}>
-          {note.tags.map((tag) => (
-            <li>{tag}</li>
-          ))}
+        <ul class="chip-list" aria-label={`${note.data.title} tags`}>
+          {note.data.tags.map((tag: string) => <li>{tag}</li>)}
         </ul>
-        <span class="note-status">Planned</span>
+        <time class="note-status" datetime={note.data.publishedAt}>
+          {note.data.publishedAt}
+        </time>
       </div>
 
-      <section class="note-section">
-        <h2>Planned Coverage</h2>
-        <ul class="focus-list">
-          {note.outline.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="note-section note-callout">
-        <h2>Status</h2>
-        <p>
-          This page is a preview of the future note layout. The full write-up is
-          not published yet.
-        </p>
-      </section>
+      <div class="article-body">
+        <Content />
+      </div>
 
       <p class="note-backlink"><a href="/notes">Back to Notes</a></p>
     </article>

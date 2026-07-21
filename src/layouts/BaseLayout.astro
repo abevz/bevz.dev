@@ -5,9 +5,11 @@ interface Props {
   title: string;
   description: string;
   robots?: string;
+  ogType?: "website" | "article";
+  publishedAt?: string;
 }
 
-const { title, description, robots } = Astro.props;
+const { title, description, robots, ogType = "website", publishedAt } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +28,10 @@ const { title, description, robots } = Astro.props;
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    {ogType === "article" && publishedAt && (
+      <meta property="article:published_time" content={publishedAt} />
+    )}
     <meta property="og:url" content={`https://bevz.dev${Astro.url.pathname}`} />
     <meta property="og:image" content="https://bevz.dev/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />

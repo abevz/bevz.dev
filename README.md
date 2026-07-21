@@ -17,6 +17,7 @@ What exists now:
 - supporting pages for `/projects`, `/notes`, and `/cv`
 - Ayu-inspired visual system with golden dragon brand mark
 - typed data sources for profile, work cards, services, skills, and notes
+- a content-driven engineering article route under `/notes/<slug>`
 - static Astro build ready for GitHub -> Cloudflare Pages deployment
 - repository guidance in [AGENTS.md](./AGENTS.md)
 - planning docs in [docs/PLAN.md](./docs/PLAN.md), [docs/STRUCTURE.md](./docs/STRUCTURE.md), and [docs/NOTES.md](./docs/NOTES.md)
@@ -42,7 +43,7 @@ What exists now:
 docs/                  Planning and structure docs
 public/                Static assets
 src/components/        Astro UI components
-src/content/notes/     Future full note articles in Markdown / MDX
+src/content/notes/     Full note articles in Markdown / MDX
 src/data/              Typed project/content data
 src/layouts/           Shared page layouts
 src/pages/             Route entrypoints
@@ -57,6 +58,6 @@ ASTRO_TELEMETRY_DISABLED=1 npm run build
 
 ## Content Notes
 
-- note listing cards currently come from [src/data/notes.ts](./src/data/notes.ts)
-- future full note articles should live under `src/content/notes/`
+- note listing cards come from [src/data/notes.ts](./src/data/notes.ts)
+- full note articles live under `src/content/notes/`
 - the writing contract for future articles is documented in [docs/NOTES.md](./docs/NOTES.md)

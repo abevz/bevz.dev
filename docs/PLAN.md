@@ -38,7 +38,7 @@ positioning, practical work evidence, short notes, and direct contact.
 - [x] Tighten wording for recruiter and hiring-manager readability
 - [x] Add favicon and OG image assets
 - [x] Add note-card structure without fake articles
-- [ ] Decide whether note detail pages should stay hidden until full content exists
+- [x] Publish the first evidence-based engineering article with a content-driven detail page
 - [ ] Add downloadable CV file if a public PDF is needed
 
 ## Phase 4: Deployment
@@ -59,6 +59,5 @@ positioning, practical work evidence, short notes, and direct contact.
 
 ## Immediate Next Task
 
-Push the release branch, merge to `main`, and connect the repository to
-Cloudflare Pages. After that, either keep notes as listing-only or promote the
-first 1-2 real articles from `src/content/notes/`.
+Publish additional articles only when the underlying evidence is ready; keep
+planned topics visibly distinct from published work.

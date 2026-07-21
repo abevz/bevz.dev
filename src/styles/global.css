@@ -542,6 +542,60 @@ ul {
   font-size: 0.92rem;
 }
 
+.article-body {
+  color: var(--text-muted);
+}
+
+.article-body h2 {
+  margin: 2rem 0 0.65rem;
+  color: var(--text);
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol,
+.article-body table,
+.article-body pre {
+  margin-bottom: 1rem;
+}
+
+.article-body li + li {
+  margin-top: 0.35rem;
+}
+
+.article-body pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(10, 14, 20, 0.72);
+  color: var(--text);
+}
+
+.article-body code {
+  color: var(--accent-green);
+}
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.article-body th,
+.article-body td {
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-body th {
+  color: var(--text);
+  background: rgba(31, 36, 48, 0.7);
+}
+
 .project-detail {
   margin-bottom: 0.2rem;
 }

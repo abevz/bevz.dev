@@ -9,7 +9,11 @@ const { note } = Astro.props;
 ---
 
 <article class="note-card note-entry">
-  <h3>{note.title}</h3>
+  <h3>
+    {note.status === "published" ? (
+      <a href={`/notes/${note.slug}`}>{note.title}</a>
+    ) : note.title}
+  </h3>
   <p>{note.description}</p>
   <div class="note-footer">
     <ul class="chip-list" aria-label={`${note.title} tags`}>
@@ -17,6 +21,8 @@ const { note } = Astro.props;
         <li>{tag}</li>
       ))}
     </ul>
-    <span class="note-status">Planned</span>
+    <span class="note-status">
+      {note.status === "published" ? "Published" : "Planned"}
+    </span>
   </div>
 </article>
