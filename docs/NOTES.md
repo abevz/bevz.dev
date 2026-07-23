@@ -8,17 +8,20 @@ or platform-engineering decisions.
 
 ## Current State
 
-Today the public `/notes` page is driven by:
+The public `/notes` page uses:
 
-- [src/data/notes.ts](../src/data/notes.ts) for the listing cards
+- [src/data/notes.ts](../src/data/notes.ts) for published and planned listing cards;
+- [src/content/notes/](../src/content/notes/) for full Markdown articles;
+- [src/pages/notes/[slug].astro](../src/pages/notes/[slug].astro) for published article pages.
 
-That file controls:
+The listing data controls:
 
 - title
 - short description
 - tags
 - slug
 - planned coverage outline
+- `planned` / `published` status
 
 ## When To Create A Real Article
 
@@ -33,7 +36,7 @@ Do not publish a full note just to fill the site.
 
 ## Where To Put Full Articles
 
-Put future full notes here:
+Put full notes here:
 
 ```text
 src/content/notes/<slug>.md
@@ -121,8 +124,8 @@ What to repeat, what to avoid, and when this pattern fits.
 
 1. Add or update the note card in `src/data/notes.ts`.
 2. When real content exists, create `src/content/notes/<slug>.md`.
-3. Mark the note as published in the future content-driven route.
-4. Replace the public `Planned` state with a real `Read note` link.
+3. Set the matching listing entry to `status: "published"`.
+4. Build the site and verify the generated `/notes/<slug>/` route.
 
 ## First Good Candidates
 

@@ -4,9 +4,21 @@ export type Note = {
   description: string;
   tags: string[];
   outline: string[];
+  status: "planned" | "published";
+  publishedAt?: string;
 };
 
 export const notes: Note[] = [
+  {
+    slug: "why-my-ai-agents-need-an-execution-ledger",
+    title: "Why My AI Agents Need an Execution Ledger",
+    description:
+      "How a corrupted task-tracker journal led me to a single-writer daemon, renewable leases, and an auditable workflow for coding agents.",
+    tags: ["AI agents", "Go", "SQLite", "Git worktrees"],
+    outline: [],
+    status: "published",
+    publishedAt: "2026-07-22",
+  },
   {
     slug: "harbor-registry-container-runtime-troubleshooting",
     title: "Harbor Registry & Container Runtime Troubleshooting",
@@ -18,6 +30,7 @@ export const notes: Note[] = [
       "How containerd mirror configuration affects Kubernetes image pulls",
       "Operational issues around proxy cache, robot accounts, and S3-backed storage",
     ],
+    status: "planned",
   },
   {
     slug: "kube-prometheus-stack-troubleshooting",
@@ -30,6 +43,7 @@ export const notes: Note[] = [
       "How to reason about ServiceMonitor, Alertmanager, and dashboard wiring",
       "What usually breaks first in day-2 operations and how to debug it",
     ],
+    status: "planned",
   },
   {
     slug: "sqlite-concurrency-in-go-automation-tools",
@@ -42,6 +56,7 @@ export const notes: Note[] = [
       "How WAL, busy_timeout, and connection limits change runtime behavior",
       "Trade-offs between simplicity, reliability, and future scale",
     ],
+    status: "planned",
   },
   {
     slug: "kitty-tmux-workflow",
@@ -54,5 +69,6 @@ export const notes: Note[] = [
       "When tmux adds clarity and when it just adds another layer",
       "Practical conventions for local terminal ergonomics on Linux",
     ],
+    status: "planned",
   },
 ];
