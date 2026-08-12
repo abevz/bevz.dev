@@ -58,4 +58,15 @@ export const projects: Project[] = [
       { label: "More context", href: "/projects#democicd" },
     ],
   },
+  {
+    title: "af-coordinator",
+    label: "GitHub Project / Developer Tooling",
+    description:
+      "Local-first coordination daemon for AI agents working across many projects, repos, and worktrees. Single write authority over SQLite, HTTP+JSON over a Unix socket, and a lease-based claim protocol so concurrent agents don't collide.",
+    focus: ["Go", "SQLite", "Unix socket", "HTTP/JSON", "AI agents"],
+    links: [
+      { label: "GitHub", href: "https://github.com/abevz/af-coordinator" },
+      { label: "More context", href: "/projects#af-coordinator" },
+    ],
+  },
 ];

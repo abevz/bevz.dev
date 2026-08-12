@@ -12,7 +12,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
   cvHref: "/Aleksey-Bevz-CV.pdf",
   contactText:
-    "Legal-safe public profile for Senior DevOps / Platform Engineering work. Public job-search activation is gated by current residence-card status.",
+    "Open to Senior DevOps / Platform Engineering roles — UoP and B2B, Poland-based or EU remote.",
   currentFocus: [
     "Making Kubernetes environments more reproducible and easier to operate",
     "Turning troubleshooting work into reusable documentation and case studies",
@@ -54,7 +54,7 @@ export const profile = {
       },
       {
         command: "status",
-        lines: ["legal-safe-profile"],
+        lines: ["open-to-work"],
       },
     ],
   },
