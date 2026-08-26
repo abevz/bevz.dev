@@ -14,9 +14,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Platform-IaC",
-    label: "GitHub Project / Lab Work",
+    label: "Public Lab / Infrastructure Automation",
     description:
-      "Modular infrastructure automation for Kubernetes-oriented environments.",
+      "Public lab project covering Proxmox, Kubernetes, OpenTofu, Ansible, SOPS, platform services, security tooling, observability, documentation, and runbooks.",
     focus: [
       "OpenTofu",
       "Ansible",
@@ -31,9 +31,9 @@ export const projects: Project[] = [
   },
   {
     title: "Platform-IaC-GitOps",
-    label: "GitHub Project / GitOps Layer",
+    label: "Public Lab / GitOps Portfolio",
     description:
-      "GitOps layer for Kubernetes platform operations with ArgoCD, External Secrets, Vault, Kyverno, Istio, and cosign.",
+      "Public GitOps portfolio using Argo CD app-of-apps, External Secrets Operator, Vault, and Kyverno policy controls.",
     focus: [
       "ArgoCD",
       "External Secrets",
@@ -49,9 +49,9 @@ export const projects: Project[] = [
   },
   {
     title: "democicd",
-    label: "GitHub Project / Supply Chain Demo",
+    label: "Public Demo / Software Supply Chain",
     description:
-      "Demo Go app validating a secure CI/CD supply chain: Kaniko build, Trivy scan, cosign signing, and GitOps deployment via ArgoCD with Kyverno guardrails.",
+      "Public software-supply-chain demonstration using GitLab CI, Trivy, cosign, digest-based deployment, and admission-policy enforcement.",
     focus: ["Go", "Kaniko", "Trivy", "cosign", "ArgoCD", "Kyverno"],
     links: [
       { label: "GitHub", href: "https://github.com/abevz/democicd" },

@@ -126,8 +126,8 @@ That loop exposed defects I had not anticipated in the first design:
 These were not hypothetical backlog items. They interrupted real sessions, so
 they became specs and regression tests.
 
-On 22 July 2026, my local coordinator held 403 issues across nine projects; 336
-were completed. This is still a personal system on one machine. The useful part
+At a 22 July 2026 snapshot, my personal coordinator had recorded 403 issues across nine projects; 336 distinct issues had been closed as done at least once.
+This is still a personal system on one machine. The useful part
 of those numbers is simply that the design has been exercised outside its own
 test suite.
 
