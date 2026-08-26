@@ -1,23 +1,23 @@
 export const profile = {
   name: "Aleksey Bevz",
-  title: "Senior DevOps / Platform Engineer",
+  title: "Senior DevOps / Platform Engineer — Kubernetes-focused",
   tagline:
-    "I build and improve Kubernetes-based infrastructure, CI/CD workflows, monitoring, and automation.",
+    "Production on-premises Kubernetes, Linux, Jenkins/GitLab CI, and data-platform infrastructure.",
   summary:
-    "4+ years of production Kubernetes platform experience at Ukrenergo Digital Solutions.\n\nCurrently strengthening AWS, Terraform/OpenTofu, GitOps, and Go-based Kubernetes controller skills through platform engineering lab work.",
+    "More than four years responsible for an on-premises production Kubernetes platform—from the initial hands-on build to later architectural oversight.\n\nCurrent non-commercial lab and public portfolio work covers Kubernetes platform engineering, OpenTofu/Terraform, Ansible, GitOps, and Go training, with limited hands-on AWS lab work.",
   location: "Poland / Warsaw",
   emailUser: "aleksey.bevz",
   emailDomain: "gmail.com",
   github: "https://github.com/abevz",
   linkedin: "https://www.linkedin.com/in/aleksey-bevz/",
-  cvHref: "/Aleksey-Bevz-CV.pdf",
+  cvHref: "/cv",
   contactText:
     "Open to Senior DevOps / Platform Engineering roles — UoP and B2B, Poland-based or EU remote.",
   currentFocus: [
-    "Making Kubernetes environments more reproducible and easier to operate",
-    "Turning troubleshooting work into reusable documentation and case studies",
-    "Applying Go to practical DevOps automation",
-    "Strengthening AWS, Terraform/OpenTofu, GitOps, and Kubernetes controller skills",
+    "Deepening Kubernetes platform engineering through non-commercial lab work",
+    "Building reproducible lab environments with OpenTofu, Ansible, and GitOps",
+    "Turning lab troubleshooting into reusable documentation and case studies",
+    "Continuing AWS architecture practice and Go training in lab and portfolio projects",
   ],
   certifications: [
     "Kubestronaut",
@@ -27,7 +27,7 @@ export const profile = {
     "KCNA",
     "KCSA",
     "AWS SAA-C03",
-    "PMP",
+    "Leadership & Delivery: PMP · PMI-ACP · KMP · CSM",
   ],
   terminal: {
     blocks: [
@@ -38,18 +38,16 @@ export const profile = {
       {
         command: "experience",
         lines: [
-          "ukrenergo-production",
-          "production-like-kubernetes-lab",
+          "on-prem-production-kubernetes",
+          "non-commercial-platform-lab",
         ],
       },
       {
         command: "focus",
         lines: [
-          "kubernetes",
-          "iac",
-          "ci-cd",
-          "monitoring",
-          "automation",
+          "production-kubernetes-ci-cd",
+          "lab-iac-gitops-observability",
+          "portfolio-automation-documentation",
         ],
       },
       {

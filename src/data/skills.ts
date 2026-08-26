@@ -5,28 +5,33 @@ export type SkillGroupData = {
 
 export const skillGroups: SkillGroupData[] = [
   {
-    title: "Kubernetes Operations",
+    title: "Production Kubernetes Operations",
     description:
-      "Deployments, Helm, ingress/gateway, cert-manager, registry integration, troubleshooting.",
+      "On-premises Kubernetes and Linux across dev, test, stage, and production: initial cluster/control-plane build, upgrades, node replacement, Istio ingress certificate maintenance, capacity planning, and incident response.",
   },
   {
-    title: "Infrastructure Automation",
+    title: "Production CI/CD",
     description:
-      "OpenTofu/Terraform, Ansible, Cloudflare DNS, SOPS/Age, reproducible environments.",
+      "Jenkins pipelines, GitLab CI integration, Harbor, shared base images, multi-stage Dockerfiles, blue-green deployments, and maintenance-mode release windows.",
   },
   {
-    title: "Monitoring",
+    title: "Production Data Platform",
     description:
-      "Prometheus, Grafana, ELK/OpenSearch, logs, dashboards, resource usage, and incident troubleshooting.",
+      "PostgreSQL/Patroni HA, Ceph, Istio, RabbitMQ, and Redis integrated into the Kubernetes platform foundation.",
   },
   {
-    title: "CI/CD",
+    title: "Lab / Portfolio — IaC & GitOps",
     description:
-      "Jenkins, GitLab CI, GitHub Actions, artifact flow, Kubernetes deployment pipelines.",
+      "Proxmox, Kubernetes, OpenTofu/Terraform, Ansible, SOPS/Age, Argo CD, External Secrets Operator, Vault, Kyverno, and cosign.",
   },
   {
-    title: "Platform Thinking",
+    title: "Lab / Portfolio — Kubernetes & CI Automation",
     description:
-      "Operational clarity, documentation, trade-offs, maintainability, debugging.",
+      "cert-manager and Istio Gateway configuration; Kubernetes Gateway API CRD and Traefik automation; GitHub Actions workflows for CI, release packaging, and IaC validation.",
+  },
+  {
+    title: "Non-production Observability / Lab",
+    description:
+      "Prometheus, Grafana, Loki, and Grafana Alloy in development/test and lab environments; dashboards adapted from public examples.",
   },
 ];

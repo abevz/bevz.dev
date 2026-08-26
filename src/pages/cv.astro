@@ -7,25 +7,25 @@ import { profile } from "../data/profile";
 ---
 
 <BaseLayout
-  title="Profile — Aleksey Bevz"
-  description="Short-form profile summary for Aleksey Bevz: DevOps and Platform Engineering experience, certifications, and delivery focus."
+  title="Senior DevOps / Platform Engineer — Aleksey Bevz"
+  description="Kubernetes-focused Senior DevOps / Platform Engineer with production on-premises platform experience and separate non-commercial lab and portfolio practice."
 >
   <Header />
   <main class="shell section page-top">
     <SectionHeading
       level={1}
       title="Short-form Profile"
-      intro="A concise engineering summary focused on role fit, strengths, certifications, and current platform engineering direction."
+      intro="A concise factual summary of production platform experience, separate lab and portfolio practice, certifications, and current role fit."
     />
 
     <section class="cv-grid">
       <article class="note-card">
         <h3>Role Fit</h3>
         <p>
-          Hands-on DevOps / Platform Engineer with production infrastructure
-          experience at Ukrenergo and production-like platform practice around
-          Kubernetes, IaC, CI/CD, monitoring, registry integration,
-          DNS/TLS, and automation.
+          Senior DevOps / Platform Engineer with more than four years
+          responsible for an on-premises production Kubernetes platform—from
+          the initial hands-on build to later architectural oversight.
+          Secondary fit for hands-on Lead DevOps / Platform Tech Lead roles.
         </p>
       </article>
       <article class="note-card">
@@ -35,14 +35,16 @@ import { profile } from "../data/profile";
       <article class="note-card">
         <h3>Core Strengths</h3>
         <p>
-          Kubernetes platform work, infrastructure automation, CI/CD cleanup,
-          monitoring, registry integration, operational debugging, and
-          pragmatic documentation.
+          Production core: Kubernetes, Linux, Jenkins/GitLab CI, Harbor,
+          PostgreSQL/Patroni, Ceph, Istio, RabbitMQ, and Redis. Separate
+          non-commercial lab and portfolio practice: AWS, OpenTofu/Terraform,
+          Ansible, GitOps, Argo CD, Vault, External Secrets Operator, Kyverno,
+          cosign, Prometheus, Grafana, and Loki.
         </p>
       </article>
       <article class="note-card">
         <h3>Certifications</h3>
-        <p>{profile.certifications.join(", ")}</p>
+        <p>{profile.certifications.join(" · ")}</p>
       </article>
     </section>
   </main>
