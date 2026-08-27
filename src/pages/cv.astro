@@ -36,15 +36,18 @@ import { profile } from "../data/profile";
         <h3>Core Strengths</h3>
         <p>
           Production core: Kubernetes, Linux, Jenkins/GitLab CI, Harbor,
-          PostgreSQL/Patroni, Ceph, Istio, RabbitMQ, and Redis. Separate
-          non-commercial lab and portfolio practice: AWS, OpenTofu/Terraform,
-          Ansible, GitOps, Argo CD, Vault, External Secrets Operator, Kyverno,
-          cosign, Prometheus, Grafana, and Loki.
+          PostgreSQL/Patroni, Ceph, Istio, RabbitMQ, and Redis.
+        </p>
+        <p>
+          Separate non-commercial lab and portfolio practice: AWS,
+          OpenTofu/Terraform, Ansible, GitOps, Argo CD, Vault, External Secrets
+          Operator, Kyverno, cosign, Prometheus, Grafana, and Loki.
         </p>
       </article>
       <article class="note-card">
         <h3>Certifications</h3>
-        <p>{profile.certifications.join(" · ")}</p>
+        <p>{profile.certifications.slice(0, -1).join(" · ")}</p>
+        <p>{profile.certifications[profile.certifications.length - 1]}</p>
       </article>
     </section>
   </main>
