@@ -5,6 +5,8 @@ export type ProjectLink = {
 
 export type Project = {
   title: string;
+  /** Stable anchor id; defaults to a slug of the title. */
+  anchor?: string;
   label: string;
   description: string;
   focus: string[];
@@ -59,13 +61,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "af-coordinator",
+    title: "dibs (formerly af-coordinator)",
+    anchor: "af-coordinator",
     label: "GitHub Project / Developer Tooling",
     description:
       "Local-first coordination daemon for AI agents working across many projects, repos, and worktrees. Single write authority over SQLite, HTTP+JSON over a Unix socket, and a lease-based claim protocol so concurrent agents don't collide.",
     focus: ["Go", "SQLite", "Unix socket", "HTTP/JSON", "AI agents"],
     links: [
-      { label: "GitHub", href: "https://github.com/abevz/af-coordinator" },
+      { label: "GitHub", href: "https://github.com/abevz/dibs" },
       { label: "More context", href: "/projects#af-coordinator" },
     ],
   },
