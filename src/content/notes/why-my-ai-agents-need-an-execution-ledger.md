@@ -8,7 +8,12 @@ tags:
   - Git worktrees
 status: "published"
 publishedAt: "2026-07-22"
+updatedAt: "2026-09-24"
 ---
+
+> **Update, September 2026:** the project is now called **dibs** —
+> [github.com/abevz/dibs](https://github.com/abevz/dibs). The text below describes
+> it as it was in July 2026, under its original name.
 
 The command that finally pushed me to build a coordinator was this:
 
@@ -33,7 +38,7 @@ computed ready queue. I did not want to throw those away. I wanted a less
 fragile owner for the live state.
 
 That became
-[`af-coordinator`](https://github.com/abevz/af-coordinator).
+[`af-coordinator`](https://github.com/abevz/dibs).
 
 ## One process is allowed to write
 

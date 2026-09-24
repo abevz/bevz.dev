@@ -6,10 +6,12 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const projectId = project.title
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, "-")
-  .replace(/^-|-$/g, "");
+const projectId =
+  project.anchor ??
+  project.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 ---
 
 <article class="project-card" id={projectId}>
