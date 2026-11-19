@@ -1,4 +1,8 @@
 ---
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/500.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/geist-sans/700.css";
 import "../styles/global.css";
 
 interface Props {
@@ -21,8 +25,7 @@ const { title, description, robots, ogType = "website", publishedAt } = Astro.pr
     <meta name="description" content={description} />
     {robots && <meta name="robots" content={robots} />}
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/index.css" />
+    <meta name="referrer" content="no-referrer" />
     <meta name="theme-color" content="#0f1419" />
     <link rel="canonical" href={`https://bevz.dev${Astro.url.pathname}`} />
     <link rel="icon" type="image/png" href="/favicon.png" />
